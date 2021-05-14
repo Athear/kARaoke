@@ -21,8 +21,13 @@ import axios from "axios";
 
   const Users = {
     login: function ({ name, password }) {
-      return axios.post("/")
+      return axios.post("/api/login")
+    },
+
+    signup: function ({ name, email, password }) {
+      return axios.post("/api/signup")
     }
+
   }
 
 
