@@ -59,10 +59,8 @@ function Books() {
       <Container fluid>
         <Row>
           <Col size="md-6">
-          <YoutubeEmbed>
-              <h1>Wrecking Ball</h1>
-            </YoutubeEmbed>
-            <form>
+          
+            {/* <form>
               <Input
                 onChange={handleInputChange}
                 name="title"
@@ -84,10 +82,13 @@ function Books() {
               >
                 Submit Book
               </FormBtn>
-            </form>
+            </form> */}
           </Col>
           <Col size="md-6 sm-12">
-            <Jumbotron>
+          <YoutubeEmbed>
+              <h1>Wrecking Ball</h1>
+            </YoutubeEmbed>
+            {/* <Jumbotron>
               <h1>Books On My List</h1>
             </Jumbotron>
             {books.length ? (
@@ -105,7 +106,7 @@ function Books() {
               </List>
             ) : (
               <h3>No Results to Display</h3>
-            )}
+            )} */}
           </Col>
         </Row>
       </Container>
