@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import { Input, TextArea, FormBtn } from "../components/Form";
@@ -11,32 +11,65 @@ function Login() {
         setFormObject({ ...formObject, [name]: value })
     };
 
-    function handleFormSubmit() {
+    function handleLogin(e) {
+        e.preventDefault();
         console.log(formObject)
     }
 
+    function handleSignup(e){
+        e.preventDefault();
+        console.log(formObject)
+    }
 
     return (
-        <form>
-            <Input
-                onChange={handleInputChange}
-                name="userName"
-                placeholder="User Name"
-                type="text"
-            />
-            <Input
-                onChange={handleInputChange}
-                name="password"
-                placeholder="Password"
-                type="password"
-            />
-            <FormBtn
-                disabled={!(formObject.author && formObject.title)}
-                onClick={handleFormSubmit}
-            >
-                Submit Book
-           </FormBtn>
-        </form>
+        <Container fluid>
+            <Row>
+                <Col size="md-6">
+                    <form>
+                        <Input
+                            onChange={handleInputChange}
+                            name="userName"
+                            placeholder="User Name"
+                            type="text"
+                        />
+                        <Input
+                            onChange={handleInputChange}
+                            name="password"
+                            placeholder="Password"
+                            type="password"
+                        />
+                        <FormBtn
+                            disabled={!(formObject.userName && formObject.password)}
+                            onClick={handleLogin}
+                        >
+                            Login
+                        </FormBtn>
+                    </form>
+                </Col>
+                <Col size="md-6">
+                    <form>
+                        <Input
+                            onChange={handleInputChange}
+                            name="new_userName"
+                            placeholder="User Name"
+                            type="text"
+                        />
+                        <Input
+                            onChange={handleInputChange}
+                            name="new_password"
+                            placeholder="Password"
+                            type="password"
+                        />
+                        <FormBtn
+                            disabled={!(formObject.new_userName && formObject.new_password)}
+                            onClick={handleSignup}
+                        >
+                            Sign up
+                        </FormBtn>
+                    </form>
+                </Col>
+            </Row>
+        </Container>
     );
 }
 
