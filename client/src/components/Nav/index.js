@@ -4,7 +4,7 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <a className="navbar-brand" href="/">
-        K-AR-OKE
+        k-AR-AOKE
       </a>
     </nav>
   );
