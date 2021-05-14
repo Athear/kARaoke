@@ -59,7 +59,7 @@ function Books() {
       <Container fluid>
         <Row>
           <Col size="md-6">
-          <YoutubeEmbed embedId = "S78RmvtH79Y">
+          <YoutubeEmbed>
               <h1>Wrecking Ball</h1>
             </YoutubeEmbed>
             <form>

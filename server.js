@@ -5,7 +5,6 @@ const routes = require("./routes");
 const Grid = require("gridfs");
 const app = express();
 const PORT = process.env.PORT || 3001;
-const multer = require('multer');
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
