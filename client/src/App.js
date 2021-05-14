@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
+import Books from "./pages/Stage";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login"
@@ -15,12 +15,12 @@ function App() {
           <Route exact path={["/", "/login"]}>
             <Login />
           </Route>
-          <Route exact path={["/books"]}>
-            <Books />
+          <Route exact path={["/stage"]}>
+            <Stage />
           </Route>
-          <Route exact path="/books/:id">
+          {/* <Route exact path="/stage/:id">
             <Detail />
-          </Route>
+          </Route> */}
           <Route>
             <NoMatch />
           </Route>
