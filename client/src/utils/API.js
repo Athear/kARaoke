@@ -20,8 +20,8 @@ import axios from "axios";
   }
 
   const Users = {
-    login: function ({ name, password }) {
-      return axios.get("/api/users/login")
+    login: function (userData) {
+      return axios.get("/api/users/login", userData)
     },
 
     signup: function (userData) {

@@ -14,7 +14,18 @@ function Login() {
 
     function handleLogin(e) {
         e.preventDefault();
-        console.log(formObject)
+        if(formObject.userName && formObject.password){
+            API.login({
+                username:formObject.userName,
+                password:formObject.password
+            })
+                .then(res => {
+                    console.log("success!")
+                    console.log(res)
+
+                }) //Placeholder! Do a redirect 
+                .catch(err => console.log(err.response.status,err.response.data.message));
+        }
     }
 
     function handleSignup(e){
@@ -25,7 +36,7 @@ function Login() {
                 email:formObject.new_email,
                 password:formObject.new_password
             })
-                .then(res => console.log(res)) //Placeholder! 
+                .then(res => console.log(res)) //Placeholder! Do a redirect
                 .catch(err => console.log(err));
         }
     }
