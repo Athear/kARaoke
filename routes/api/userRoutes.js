@@ -5,6 +5,7 @@ const userController = require("../../controllers/userController");
 router.post("/signup",userController.create);
 
 //login
+router.get("/login",userController.login);
 // router.get("/register", async (req, res) => {
 //   try {
 //     const userData = await User.findOne({ where: { email: req.body.email } });
