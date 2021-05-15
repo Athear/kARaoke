@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
+import {Users as API} from "../utils/API";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
 function Login() {
@@ -18,7 +19,14 @@ function Login() {
 
     function handleSignup(e){
         e.preventDefault();
-        console.log(formObject)
+        console.log("signing up!", formObject)
+        if(formObject.new_userName && formObject.new_password && formObject.new_email){
+            API.signup({
+                username:formObject.new_userName,
+                email:formObject.new_email,
+                password:formObject.new_password
+            })
+        }
     }
 
     return (
@@ -52,6 +60,12 @@ function Login() {
                             onChange={handleInputChange}
                             name="new_userName"
                             placeholder="User Name"
+                            type="text"
+                        />
+                        <Input
+                            onChange={handleInputChange}
+                            name="new_email"
+                            placeholder="Email"
                             type="text"
                         />
                         <Input

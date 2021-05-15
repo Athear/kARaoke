@@ -21,11 +21,11 @@ import axios from "axios";
 
   const Users = {
     login: function ({ name, password }) {
-      return axios.post("/api/login")
+      return axios.get("/api/users/login")
     },
 
-    signup: function ({ name, email, password }) {
-      return axios.post("/api/signup")
+    signup: function (userData) {
+      return axios.post("/api/users/signup",userData)
     }
 
   }
