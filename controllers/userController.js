@@ -1,4 +1,5 @@
 const { restart } = require("nodemon");
+const { User } = require("../models");
 const db = require("../models");
 
 // Defining methods for the UsersController
@@ -21,8 +22,10 @@ module.exports = {
     if(currentUser){
       res.status(400).json({ message: "This email is already registered" });
     }else{
-      db.User
-        .create(user)
+      let newUser = new db.User(req.body);
+      await newUser.hashPassword(req.body.password)
+      newUser
+        .save()
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     }
