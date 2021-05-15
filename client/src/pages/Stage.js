@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
 // import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
-<<<<<<< HEAD:client/src/pages/Books.js
-import {Books as API} from "../utils/API";
-import { Link } from "react-router-dom";
-=======
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
->>>>>>> main:client/src/pages/Stage.js
 import { Col, Row, Container } from "../components/Grid";
 import YoutubeEmbed from "../components/YoutubeEmbed";
 import Canvas from "../components/Canvas/Canvas"
