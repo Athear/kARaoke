@@ -19,13 +19,14 @@ function Login() {
 
     function handleSignup(e){
         e.preventDefault();
-        console.log("signing up!", formObject)
         if(formObject.new_userName && formObject.new_password && formObject.new_email){
             API.signup({
                 username:formObject.new_userName,
                 email:formObject.new_email,
                 password:formObject.new_password
             })
+                .then(res => console.log(res)) //Placeholder! 
+                .catch(err => console.log(err));
         }
     }
 

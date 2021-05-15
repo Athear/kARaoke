@@ -1,3 +1,4 @@
+const { restart } = require("nodemon");
 const db = require("../models");
 
 // Defining methods for the UsersController
@@ -15,11 +16,16 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
-    db.User
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  create: async function(req, res) {
+    const currentUser = await db.User.findOne({email:req.body.email}).exec()
+    if(currentUser){
+      res.status(400).json({ message: "This email is already registered" });
+    }else{
+      db.User
+        .create(user)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    }
   },
   login: function(req,res){
     //don't forget to check password here
