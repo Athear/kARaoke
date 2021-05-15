@@ -11,7 +11,7 @@ let outfit = {
 
 function preload() {
   img1 = loadImage("https://chriscastle.com/temp/chrisg/gangsta.png");
-  img2 = loadImage("http://www.chriscastle.com/temp/chrisg/cowboyHat.png");
+  img2 = loadImage("https://www.chriscastle.com/temp/chrisg/cowboyHat.png");
   img3 = loadImage("https://chriscastle.com/temp/chrisg/fishnetShirt.png");
 }
 
