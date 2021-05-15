@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
-import {Users as API} from "../utils/API";
+import API from "../utils/API";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
 function Login() {
