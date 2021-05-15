@@ -1,0 +1,18 @@
+* {
+    background-color: black;
+    color: chartreuse;
+  }
+  
+  .title {
+    text-align: center;
+    font-family: "Train One", cursive;
+    font-size: 250px;
+  
+    -webkit-background-clip: text;
+    color: transparent;
+  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../images/aditya-chinchure-ZhQCZjr9fHo-unsplash.jpeg");
+  }
+  
