@@ -19,12 +19,8 @@ function Login() {
                 username:formObject.userName,
                 password:formObject.password
             })
-                .then(res => {
-                    console.log("success!")
-                    console.log(res)
-
-                }) //Placeholder! Do a redirect 
-                .catch(err => console.log(err.response.status,err.response.data.message));
+                .then(res => console.log(res.data.message,res.status)) //Placeholder! Do a redirect 
+                .catch(err => console.log(err.response.data.message,err.response.status));
         }
     }
 
@@ -36,8 +32,8 @@ function Login() {
                 email:formObject.new_email,
                 password:formObject.new_password
             })
-                .then(res => console.log(res)) //Placeholder! Do a redirect
-                .catch(err => console.log(err));
+            .then(res => console.log(res.data.message,res.status)) //Placeholder! Do a redirect 
+            .catch(err => console.log(err.response.data.message,err.response.status));
         }
     }
 
