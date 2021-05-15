@@ -21,7 +21,7 @@ import axios from "axios";
 
   const Users = {
     login: function (userData) {
-      return axios.get("/api/users/login", userData)
+      return axios.post("/api/users/login", userData)
     },
 
     signup: function (userData) {
