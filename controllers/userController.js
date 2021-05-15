@@ -30,7 +30,7 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     }
   },
-  login: function (req, res) {
+  login: async function (req, res) {
     try {
       const userData = await db.User.findOne({ username: req.body.username }).exec()
       if (!userData) {
