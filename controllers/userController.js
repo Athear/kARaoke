@@ -33,6 +33,7 @@ module.exports = {
   login: async function (req, res) {
     try {
       const userData = await db.User.findOne({ username: req.body.username }).exec()
+      
       if (!userData) {
         res
           .status(400)
@@ -47,7 +48,6 @@ module.exports = {
           .json({ message: "Incorrect user name or password, please try again" });
         return;
       }
-      console.log(userData);
       res.json({ user: userData, message: "You are now logged in!" });
     } catch (err) {
       res.status(400).json(err);
