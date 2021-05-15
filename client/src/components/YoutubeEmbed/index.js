@@ -13,6 +13,8 @@ const YoutubeEmbed = ({ embedId  }) => (
       allowFullScreen
       title="Embedded youtube"
       autoplay= "true"
+      muted="true"
+      playsinline="true"
     />
   </div>
 );
