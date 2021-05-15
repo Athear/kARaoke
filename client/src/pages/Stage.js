@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import DeleteBtn from "../components/DeleteBtn";
-// import Jumbotron from "../components/Jumbotron";
+import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -10,14 +10,14 @@ import Canvas from "../components/Canvas/Canvas"
 function Stage() {
   // Setting our component's initial state
   const [stage, setStage] = useState([])
-  const [formObject, setFormObject] = useState({})
+  // const [formObject, setFormObject] = useState({})
 
-  // Load all books and store them with setBooks
+  // Load all the stages and set them with setStage
   useEffect(() => {
     loadStage()
   }, [])
 
-  // Loads all books and sets them to books
+  // Loads all stages and sets them to stages
   function loadStage() {
     API.getStage()
       .then(res => 
@@ -58,6 +58,12 @@ function Stage() {
       <Container fluid>
         <Row>
           <Col size="md-6">
+          <Jumbotron>
+          <h1> choose your stage</h1>
+          <p> setStage() </p>
+          </Jumbotron>
+           
+         
           <Canvas/>
           
             {/* <form>
