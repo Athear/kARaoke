@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
+import API from "../utils/API";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
 function Login() {
@@ -13,12 +14,27 @@ function Login() {
 
     function handleLogin(e) {
         e.preventDefault();
-        console.log(formObject)
+        if(formObject.userName && formObject.password){
+            API.login({
+                username:formObject.userName,
+                password:formObject.password
+            })
+                .then(res => console.log(res.data.message,res.status)) //Placeholder! Do a redirect 
+                .catch(err => console.log(err.response.data.message,err.response.status));
+        }
     }
 
     function handleSignup(e){
         e.preventDefault();
-        console.log(formObject)
+        if(formObject.new_userName && formObject.new_password && formObject.new_email){
+            API.signup({
+                username:formObject.new_userName,
+                email:formObject.new_email,
+                password:formObject.new_password
+            })
+            .then(res => console.log(res.data.message,res.status)) //Placeholder! Do a redirect 
+            .catch(err => console.log(err.response.data.message,err.response.status));
+        }
     }
 
     return (
@@ -52,6 +68,12 @@ function Login() {
                             onChange={handleInputChange}
                             name="new_userName"
                             placeholder="User Name"
+                            type="text"
+                        />
+                        <Input
+                            onChange={handleInputChange}
+                            name="new_email"
+                            placeholder="Email"
                             type="text"
                         />
                         <Input
