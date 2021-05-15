@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Stage";
-import Detail from "./pages/Detail";
+import Stage from "./pages/Stage";
+// import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
-import Login from "./pages/Login"
+import Login from "./pages/Login";
 import Nav from "./components/Nav";
 
 function App() {
