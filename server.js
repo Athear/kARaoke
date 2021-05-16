@@ -1,5 +1,6 @@
 const express = require("express");
-
+const session = require("express-session");
+const MongoStore = require('connect-mongo');
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -14,6 +15,17 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
+
+//add session storage
+const sess = {
+  secret: "just a little secret",
+  cookie: { secure: false },
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/karaoke" })
+};
+
+app.use(session(sess));
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/karaoke"),
