@@ -26,7 +26,14 @@ module.exports = {
       await newUser.hashPassword(req.body.password)
       newUser
         .save()
-        .then(dbModel => res.json(dbModel))
+        .then(dbModel => {
+          console.log(newUser)
+          req.session.logged_in = true;
+          req.session.user_id = newUser._id;
+          res.status(200).json({
+            message: "User created",
+          })
+        })
         .catch(err => res.status(422).json(err));
     }
   },
@@ -48,7 +55,12 @@ module.exports = {
           .json({ message: "Incorrect user name or password, please try again" });
         return;
       }
-      res.json({ user: userData, message: "You are now logged in!" });
+      req.session.save(() => {
+        req.session.logged_in = true;
+        req.session.user_id = userData.id;
+        req.session.first_name = userData.first_name;
+        res.json({ user: userData, message: "You are now logged in!" });
+      });
     } catch (err) {
       res.status(400).json(err);
     }
