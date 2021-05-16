@@ -22,7 +22,6 @@ function setup() {
   video.hide();
   poseNet = ml5.poseNet(video, modelLoaded);
   poseNet.on("pose", gotPoses);
-  
 }
 function gotPoses(poses) {
   if (poses.length > 0) {
@@ -34,29 +33,28 @@ function modelLoaded() {
 }
 function draw() {
   image(video, 0, 0);
-  if (outfit.sunglasses) {
-    image(img1, pose.rightEye.x - 135, pose.rightEye.y - 40);
+  if (pose) {
+    let earR = pose.rightEar;
+    let earL = pose.leftEar;
+    let d = dist(earR.x, earR.y, earL.x, earL.y);
+      if (outfit.sunglasses) {
+        image(img1, pose.rightEye.x-50, pose.rightEye.y-20, d+10, d/1.5);
+      }
+      if (outfit.hat) {
+        image(img2, pose.nose.x - 180, pose.nose.y - 230);
+      }
+      if (outfit.shirt) {
+        image(img3, pose.rightShoulder.x - 100, pose.rightShoulder.y - 100);
+      }
+    
   }
-  if (outfit.hat) {
-    image(img2, pose.nose.x - 180, pose.nose.y - 230);
-  }
-  if (outfit.shirt) {
-    image(img3, pose.rightShoulder.x-100, pose.rightShoulder.y-100);
-  }
-  // if (pose) {
-  //   image(img, pose.rightEye.x-135, pose.rightEye.y-40);
-  // }
 }
 document.getElementById("btns").addEventListener("toggle", (e) => {
-
   mousePressed(e);
-
 });
 
-
 function mousePressed(e) {
-  
-  outfit[e.target.id]= !outfit[e.target.id];
+  outfit[e.target.id] = !outfit[e.target.id];
   redraw();
   console.log(outfit);
 }

@@ -1,6 +1,7 @@
 // Create the required custom methods at the bottom of this file
 
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const Schema = mongoose.Schema;
 
@@ -42,6 +43,13 @@ UserSchema.methods.lastUpdatedDate = function () {
   return this.lastUpdated;
 }
 
+UserSchema.methods.hashPassword = async function (newPassword){
+  this.password = await bcrypt.hash(newPassword, 10);
+}
+
+UserSchema.methods.checkPassword = function (loginPw){
+  return bcrypt.compareSync(loginPw, this.password);
+}
 // This creates our model from the above schema, using mongoose's model method
 const User = mongoose.model("User", UserSchema);
 
