@@ -1,5 +1,13 @@
 import React from "react";
+import * as posenet from '@tensorflow-models/posenet';
 import "./style.css";
+
+const videoWidth = 900;
+const videoHeight = 700;
+
+async function setupCamera(){
+  
+}
 
 const Canvas = () => (
 
