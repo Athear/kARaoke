@@ -25,6 +25,7 @@
     "bootstrap": "^5.0.1",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
-    "mongoose": "^5.3.16"
+    "mongoose": "^5.3.16",
+    "reactjs-media": "^1.5.1"
   }
 }
