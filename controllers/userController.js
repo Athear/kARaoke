@@ -30,7 +30,7 @@ module.exports = {
           console.log(newUser)
           req.session.logged_in = true;
           req.session.user_id = newUser._id;
-          res.status(200).json({sessionID:req.sessionID,message: "User created",})
+          res.status(200).json({sessionID: req.sessionID, message: "User created", })
         })
         .catch(err => res.status(422).json(err));
     }
@@ -38,7 +38,7 @@ module.exports = {
   login: async function (req, res) {
     try {
       const userData = await db.User.findOne({ username: req.body.username }).exec()
-      
+
       if (!userData) {
         res
           .status(400)
@@ -56,24 +56,21 @@ module.exports = {
       req.session.save(() => {
         req.session.logged_in = true;
         req.session.user_id = userData.id;
-        req.session.first_name = userData.first_name;
-        res.json({sessionID:req.sessionID, message: "You are now logged in!" });
+        res.json({ sessionID: req.sessionID, message: "You are now logged in!" });
       });
     } catch (err) {
       res.status(400).json(err);
     }
+  },
+
+  getUserData: function (req, res) {
+    if (!req.session) {
+      res.json(null);
+    } else {
+      res.json({
+        user_id: req.session.user_id,
+        session_id: req.sessionID
+      });
+    }
   }
-  // update: function(req, res) {
-  //   db.User
-  //     .findOneAndUpdate({ _id: req.params.id }, req.body)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
-  // remove: function(req, res) {
-  //   db.User
-  //     .findById({ _id: req.params.id })
-  //     .then(dbModel => dbModel.remove())
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // }
 };
