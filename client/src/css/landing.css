@@ -14,6 +14,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url("../images/aditya-chinchure-ZhQCZjr9fHo-unsplash.jpeg");
+    
   }
 
   .cta {
@@ -25,8 +26,9 @@
 
   .cta:hover{
     background-color: #18AEB0!important;
+    box-shadow: rgba(182, 255, 73, 0.945) 0px 7px 29px 0px;
   }
-
+  
   .vertical-center {
     margin: 0;
     position: absolute;
@@ -38,3 +40,4 @@
   /* CTA Button color: #C336C5 
     CTA Button contrast color: #18AEB0
   */
+

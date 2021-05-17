@@ -4,6 +4,7 @@ import Stage from "./pages/Stage";
 import Landing from "./pages/Landing";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login";
+  
 
 
 
@@ -16,7 +17,7 @@ function App() {
             <Landing />
           </Route>
           <Route exact path={["/login"]}>
-          <Login />
+          <Login className="background"/>
           </Route>
           <Route exact path={["/stage"]}>
             <Stage />
