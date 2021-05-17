@@ -1,0 +1,39 @@
+.background{
+    background-image: url("../images/background1.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.padding{
+    padding-top: 100px;
+}
+
+.heading {
+    
+    text-align: center;
+    font-family: "Train One", cursive;
+    font-size: 100px;
+    color: rgb(182, 255, 73);
+    text-shadow: #FC0 1px 0 10px;
+    /* text-shadow: 10px,10px, #c336c5; */
+    padding-top:30px;
+    padding-bottom: 30px;
+}
+
+.input-spacing{
+    margin-bottom: 20px;
+}
+
+.form-cta{
+    margin-top: 20px;
+    color: white!important;
+    background-color: #C336C5!important;
+}
+
+.form-cta:hover{
+    color:#18aeb0!important;
+    font-weight:bold;
+    background-color: rgb(182, 255, 73)!important;
+  }
