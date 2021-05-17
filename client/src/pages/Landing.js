@@ -7,13 +7,12 @@ function Landing() {
     <Container>
     <div className="jumbotron row">
       <h1 className="title">kARaoke</h1>
-
-      <div className="text-center">
-      <a className="btn btn-lg cta mt-5" href="/login" role="button">
+    </div>
+      <div className="text-center jumbotron row">
+      <a className="btn btn-lg cta rounded-0" href="/login" role="button">
       Just duet already!
       </a>
       </div>
-    </div>
     <div className="row crowd">
     <h1 className = "blank">CROWD GOES WILD</h1>
       </div>
