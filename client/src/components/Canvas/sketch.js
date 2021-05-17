@@ -9,7 +9,7 @@ let img3;
 let video;
 let poseNet;
 let pose;
-
+// let filter;
 
 let outfit = {
   sunglasses: false,
@@ -48,6 +48,12 @@ function modelLoaded() {
 
 p.draw = function() {
   p.image(video, 0, 0);
+//  take on me filter:
+//  p.filter(THRESHOLD, [0.4]);
+//  tainted love filter:
+//  p.filter(INVERT);
+//  blackout filter
+//  p.filter(POSTERIZE);
   if (outfit.sunglasses) {
     p.image(img1, pose.rightEye.x - 135, pose.rightEye.y - 40);
   }
@@ -60,6 +66,10 @@ p.draw = function() {
   // if (pose) {
   //   image(img, pose.rightEye.x-135, pose.rightEye.y-40);
   // }
+  //creating a button with a saveAsCanvas function to create and save a screenshot
+  // saveImageBtn = createButton("Save Canvas");
+  // saveImageBtn.position(150, 60);
+  // saveImageBtn.mousePressed(saveAsCanvas);
 }
 
 //
@@ -76,6 +86,10 @@ function mousePressed(e) {
   p.redraw();
   console.log(outfit);
 }
+// function saveAsCanvas () {
+//   save ("karaoke_canvas.png")
+// }
+
 }
 // Here is the url for serving pics for dev http://www.chriscastle.com/temp/chrisg/ http://ftp.chriscastle.com/videos/yt1s.com%20-%20Miley%20Cyrus%20%20Wrecking%20Ball%20Karaoke%20Version.mp4
 //ftp.chriscastle.com/videos/
