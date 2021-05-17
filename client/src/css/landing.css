@@ -16,6 +16,7 @@
     text-align: center;
     font-family: "Train One", cursive;
     font-size: 250px;
+    margin-bottom: 20px;;
   
     -webkit-background-clip: text;
     color: transparent;
@@ -27,11 +28,10 @@
   }
 
   .cta {
-
-    margin-top: 100px;
+    margin-top: 70px;
     color: white!important;
     background-color: #C336C5!important;
-    font-family: 'Kanit', sans-serif;;
+    font-family: 'Kanit', sans-serif;
   }
 
   .cta:hover{
