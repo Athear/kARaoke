@@ -16,5 +16,9 @@ export default {
 
   signup: function (userData) {
     return axios.post("/api/users/signup",userData)
+  },
+
+  auth: function () {
+    return axios.get("/api/users/session")
   }
 };
