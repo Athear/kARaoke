@@ -2,11 +2,21 @@
     background-color: black;
     color: chartreuse;
   }
-  
+
+.crowd {
+  background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../images/crowd.jpg");
+}
+  h1.blank {
+    font-size: 150px;
+    visibility: hidden;
+  }
   .title {
     text-align: center;
     font-family: "Train One", cursive;
     font-size: 250px;
+    margin-bottom: 20px;;
   
     -webkit-background-clip: text;
     color: transparent;
@@ -14,19 +24,21 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url("../images/aditya-chinchure-ZhQCZjr9fHo-unsplash.jpeg");
+    
   }
 
   .cta {
-
-    margin-top: 100px;
+    margin-top: 70px;
     color: white!important;
     background-color: #C336C5!important;
+    font-family: 'Kanit', sans-serif;
   }
 
   .cta:hover{
     background-color: #18AEB0!important;
+    box-shadow: rgba(182, 255, 73, 0.945) 0px 7px 29px 0px;
   }
-
+  
   .vertical-center {
     margin: 0;
     position: absolute;
@@ -35,6 +47,8 @@
     transform: translateY(-50%);
   }
 
+
   /* CTA Button color: #C336C5 
     CTA Button contrast color: #18AEB0
   */
+
