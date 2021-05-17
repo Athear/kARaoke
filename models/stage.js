@@ -6,8 +6,10 @@ const stageSchema = new Schema({
   background: { type: String, required: false },
   costume: {
     type: Map,
-    of: String
-  }
+    of: String,
+    required: false
+  },
+  filter: { type: String, required: false}
 });
 
 const Stage = mongoose.model("Stage", stageSchema);
