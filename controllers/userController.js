@@ -30,9 +30,7 @@ module.exports = {
           console.log(newUser)
           req.session.logged_in = true;
           req.session.user_id = newUser._id;
-          res.status(200).json({
-            message: "User created",
-          })
+          res.status(200).json({sessionID:req.sessionID,message: "User created",})
         })
         .catch(err => res.status(422).json(err));
     }
@@ -59,7 +57,7 @@ module.exports = {
         req.session.logged_in = true;
         req.session.user_id = userData.id;
         req.session.first_name = userData.first_name;
-        res.json({ user: userData, message: "You are now logged in!" });
+        res.json({sessionID:req.sessionID, message: "You are now logged in!" });
       });
     } catch (err) {
       res.status(400).json(err);
