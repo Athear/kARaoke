@@ -2,7 +2,16 @@
     background-color: black;
     color: chartreuse;
   }
-  
+
+.crowd {
+  background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../images/crowd.jpg");
+}
+  h1.blank {
+    font-size: 150px;
+    visibility: hidden;
+  }
   .title {
     text-align: center;
     font-family: "Train One", cursive;
@@ -21,6 +30,7 @@
     margin-top: 100px;
     color: white!important;
     background-color: #C336C5!important;
+    font-family: 'Kanit', sans-serif;;
   }
 
   .cta:hover{
@@ -34,6 +44,7 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
+
 
   /* CTA Button color: #C336C5 
     CTA Button contrast color: #18AEB0
