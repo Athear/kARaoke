@@ -30,7 +30,7 @@ const stageSeed = [
   {
     name: "Tainted Love",
     background: "",
-    song: "",
+    song: "https://chriscastle.com/temp/chrisg/videos/TaintedLove.mp4",
     filter: "INVERT"
   },
   {
