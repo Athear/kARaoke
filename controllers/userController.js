@@ -63,6 +63,16 @@ module.exports = {
     }
   },
 
+  logout: function (req, res) {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(200).end();
+    }
+  },
+
   getUserData: function (req, res) {
     if (!req.session) {
       res.json(null);
