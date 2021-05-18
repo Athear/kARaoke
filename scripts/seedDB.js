@@ -9,12 +9,35 @@ const stageSeed = [
   {
     name: "I'm Too Sexy",
     background: "",
+    song: "https://chriscastle.com/temp/chrisg/videos/ImTooSexy.mp4",
     costume: 
       {
         glasses: "https://chriscastle.com/temp/chrisg/gangsta.png",
         hat: "http://www.chriscastle.com/temp/chrisg/cowboyHat.png",
         shirt: "https://chriscastle.com/temp/chrisg/fishnetShirt.png",
       },
+  },
+  {
+    name: "Wrecking Ball",
+    background: "",
+    song: "https://chriscastle.com/temp/chrisg/videos/Miley_Cyrus_Wrecking_Ball_Karaoke.mp4",
+    costume: 
+      {
+  
+      },
+
+  },
+  {
+    name: "Tainted Love",
+    background: "",
+    song: "",
+    filter: "INVERT"
+  },
+  {
+    name: "Take on Me",
+    background: "",
+    song: "",
+    filter: "THRESHOLD, [0.4]"
   },
 ];
 

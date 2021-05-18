@@ -6,6 +6,7 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import SongSelection from "../components/SongSelection";
 import Canvas from "../components/Canvas/Canvas"
+// import "../css/stage.css";
 
 function Stage() {
   // Setting our component's initial state
