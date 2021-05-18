@@ -1,7 +1,7 @@
 {
   "name": "mern",
   "version": "1.0.0",
-  "description": "",
+  "description": "A sing along app with augmented reality",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -27,6 +27,15 @@
     "express": "^4.16.3",
     "express-session": "^1.17.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.3.16"
-  }
+    "mongoose": "^5.3.16",
+    "reactjs-media": "^1.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Athear/kARaoke.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Athear/kARaoke/issues"
+  },
+  "homepage": "https://github.com/Athear/kARaoke#readme"
 }

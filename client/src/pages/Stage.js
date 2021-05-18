@@ -4,8 +4,9 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import YoutubeEmbed from "../components/YoutubeEmbed";
+import SongSelection from "../components/SongSelection";
 import Canvas from "../components/Canvas/Canvas"
+// import "../css/stage.css";
 
 function Stage() {
   // Setting our component's initial state
@@ -91,9 +92,7 @@ function Stage() {
             </form> */}
           </Col>
           <Col size="md-6 sm-12">
-          <YoutubeEmbed>
-              <h1>Wrecking Ball</h1>
-            </YoutubeEmbed>
+          <SongSelection />
             {/* <Jumbotron>
               <h1>Books On My List</h1>
             </Jumbotron>
