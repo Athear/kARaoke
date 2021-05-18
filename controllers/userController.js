@@ -77,10 +77,13 @@ module.exports = {
     if (!req.session) {
       res.json(null);
     } else {
-      res.json({
-        user_id: req.session.user_id,
-        session_id: req.sessionID
-      });
+      db.User.findById({ _id: req.session.user_id })
+      .then(user=>{
+        res.json({
+          user: user,
+          session_id: req.sessionID
+        });
+      })
     }
   }
 };
