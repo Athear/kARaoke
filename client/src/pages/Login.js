@@ -24,6 +24,13 @@ function Login() {
         }
     }
 
+    function handleLogout(e) {
+        e.preventDefault();
+            API.logout({})
+                .then(res => console.log(res.data.message,res.status)) //Placeholder! Do a redirect 
+                .catch(err => console.log(err.response.data.message,err.response.status));
+    }
+
     function handleSignup(e){
         e.preventDefault();
         if(formObject.new_userName && formObject.new_password && formObject.new_email){
@@ -35,6 +42,19 @@ function Login() {
             .then(res => console.log(res.data.message,res.status)) //Placeholder! Do a redirect 
             .catch(err => console.log(err.response.data.message,err.response.status));
         }
+    }
+
+    function validateSession(e){
+        e.preventDefault();
+        API.auth()
+        .then(res=>{
+            console.log(res.data.session_id,res.data.user_id)
+            if(res.data.user_id){
+                console.log('valid!')
+            }else{
+                console.log('invalid!')
+            }
+        })
     }
 
     return (
@@ -91,6 +111,12 @@ function Login() {
                     </form>
                 </Col>
             </Row>
+            <FormBtn onClick={validateSession}>
+                validate
+            </FormBtn>
+            <FormBtn onClick={handleLogout}>
+                logout
+            </FormBtn>
         </Container>
     );
 }
