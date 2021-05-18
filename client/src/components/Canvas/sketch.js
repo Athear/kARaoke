@@ -50,6 +50,12 @@ function modelLoaded() {
 
 
 p.draw = function() {
+  if (p.MIRROR_VIDEO_FEED == true) {
+    // flip the video vertically to create a video which functions as a mirror
+    p.translate(p.width, 0); // move canvas to the right
+    p.scale(-1.0, 1.0);
+  }
+    // flip x-axis backwards
   p.image(video, 0, 0);
 //  take on me filter:
 //  p.filter(THRESHOLD, [0.4]);
