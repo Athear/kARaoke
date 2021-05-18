@@ -1,8 +1,11 @@
+// import React from "react";
 import * as ml5 from "ml5";
 
 // const net = await posenet.load()
 
-function sketch (p){
+function sketch (p, props){
+
+  console.log("sketch props: ", props);
 let img1;
 let img2;
 let img3;    
@@ -25,7 +28,7 @@ p.preload = function() {
 
 p.setup = function () {
    
-  p.createCanvas(1280, 1000);
+  p.createCanvas(640, 480);
 
   video = p.createCapture(p.VIDEO);
   video.hide();
@@ -54,6 +57,11 @@ p.draw = function() {
 //  p.filter(INVERT);
 //  blackout filter
 //  p.filter(POSTERIZE);
+
+
+
+
+
   if (outfit.sunglasses) {
     p.image(img1, pose.rightEye.x - 135, pose.rightEye.y - 40);
   }

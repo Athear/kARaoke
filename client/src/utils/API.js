@@ -6,7 +6,7 @@ export default {
     return axios.get("/api/stage");
   },
 
-  getStage: function(id) {
+  getStageById: function(id) {
     return axios.get("/api/stage/" + id);
   },
 
