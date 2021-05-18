@@ -22,7 +22,7 @@ module.exports = {
     if (currentUser) {
       res.status(400).json({ message: "This email is already registered" });
     } else {
-      let newUser = new db.User(req.body);
+      const newUser = new db.User(req.body);
       await newUser.hashPassword(req.body.password)
       newUser
         .save()
@@ -30,7 +30,7 @@ module.exports = {
           console.log(newUser)
           req.session.logged_in = true;
           req.session.user_id = newUser._id;
-          res.status(200).json({sessionID: req.sessionID, message: "User created", })
+          res.status(200).json({sessionID: req.sessionID, user:newUser, message:"User registered" })
         })
         .catch(err => res.status(422).json(err));
     }
@@ -56,7 +56,7 @@ module.exports = {
       req.session.save(() => {
         req.session.logged_in = true;
         req.session.user_id = userData.id;
-        res.json({ sessionID: req.sessionID, message: "You are now logged in!" });
+        res.json({ sessionID: req.sessionID, user:userData, message: "You are now logged in!" });
       });
     } catch (err) {
       res.status(400).json(err);
