@@ -12,15 +12,14 @@ function Stage() {
   // Setting our component's initial state
   const [buttons, setButtons] = useState([])//sets state of all buttons
 
-
   const [activeSong, setSong] = useState({})
 
-  // Load all the stages and set them with setStage
+  // Load and set stage with setStage
   useEffect(() => {
     loadStage()
   }, [])
 
-  // Loads all stages and sets them to stages
+  // Calls database and sets state of buttons
   function loadStage() {
     API.getStage()
       .then(res => 
