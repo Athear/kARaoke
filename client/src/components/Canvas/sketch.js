@@ -5,6 +5,9 @@ function sketch (p, props){
 let img1;
 let img2;
 let img3;
+let img1A;
+let img2B;
+let img3C;
 let video;
 let poseNet;
 let pose;
@@ -14,10 +17,11 @@ let outfit = {
   hat: true,
   shirt: true,
 };
+
 p.preload = function() {
-  img1 = p.loadImage("https://chriscastle.com/temp/chrisg/aviators.png");
-  img2 = p.loadImage("https://www.chriscastle.com/temp/chrisg/cowboy.png");
-  img3 = p.loadImage("https://chriscastle.com/temp/chrisg/fishnetShirt.png");
+  img1A= p.loadImage("https://chriscastle.com/temp/chrisg/aviators.png");
+  img2B = p.loadImage("https://www.chriscastle.com/temp/chrisg/cowboy.png");
+  img3C = p.loadImage("https://chriscastle.com/temp/chrisg/fishnetShirt.png");
 }
 
 
@@ -56,33 +60,34 @@ p.preload = function() {
 
     console.log("var outfit: ", costume);
     if (costume) {
-      outfit = {
-        glasses: true,
-        hat: true,
-        shirt: true,
-      };
-      // p.preload = function(){
-      // img1 = currentSong.costume.glasses;
-      // img2 = currentSong.costume.hat;
-      // img3 = currentSong.costume.shirt;
+      // outfit = {
+      //   glasses: true,
+      //   hat: true,
+      //   shirt: true,
       // };
-    img1 = currentSong.costume.glasses;
-    img2 = currentSong.costume.hat;
-    img3 = currentSong.costume.shirt;
+      
+      img1 = costume.glasses;
+      img2 = costume.hat;
+      img3 = costume.shirt;
+      
+   
 
       // console.log("redraw img vars: ", img1, img2,img3);
     } 
     if (p.background) {
       // filter = true;
-      console.log(p.background);
+      // console.log(p.background);
       
     }
   };
+
+ 
 
   p.draw = function () {
     p.image(video, 0, 0);
    
     if (pose) {
+      // console.log("in draw: ", img1, img2, img3)
       let nose = pose.keypoints[0].position;
       let eye1 = pose.keypoints[1].position;
       let eye2 = pose.keypoints[2].position;
@@ -90,14 +95,14 @@ p.preload = function() {
       let shoulder2 = pose.keypoints[6].position;
       let shirtScaleWidth = (shoulder1.x-shoulder2.x);
       let scale = (eye1.x - eye2.x) / 250;
-        if (outfit.sunglasses) {
-          p.image(img1, nose.x - 353 * scale, nose.y - 200 * scale, img1.width * scale, img1.height * scale);
+        if (img1) {
+          p.image(img1A, nose.x - 353 * scale, nose.y - 200 * scale, img1A.width * scale, img1A.height * scale);
         }
-        if (outfit.hat) {
-          p.image(img2, pose.nose.x - 465 * scale, pose.nose.y - 650 * scale, (img2.width + 300) * scale, (img2.height + 100) * scale);
+        if (img2) {
+          p.image(img2B, pose.nose.x - 465 * scale, pose.nose.y - 650 * scale, (img2B.width + 300) * scale, (img2B.height + 100) * scale);
         }
-        if (outfit.shirt) {
-          p.image(img3, pose.rightShoulder.x - 200 * scale, pose.rightShoulder.y - 400 * scale, shirtScaleWidth + 100, shirtScaleWidth);
+        if (img3) {
+          p.image(img3C, pose.rightShoulder.x - 200 * scale, pose.rightShoulder.y - 400 * scale, shirtScaleWidth + 100, shirtScaleWidth);
         }
     }
    
