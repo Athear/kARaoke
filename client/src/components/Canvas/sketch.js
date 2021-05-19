@@ -21,6 +21,45 @@ p.preload = function() {
 }
 
 
+p.setup = function () {
+   
+  p.createCanvas(640, 480);
+
+  video = p.createCapture(p.VIDEO);
+  video.hide();
+  poseNet = ml5.poseNet(video, modelLoaded);
+  poseNet.on("pose", gotPoses);
+  
+}
+
+function gotPoses(poses) {
+    // console.log(poses);
+  if (poses.length > 0) {
+    pose = poses[0].pose;
+  }
+}
+
+function modelLoaded() {
+  console.log("poseNet ready");
+}
+
+
+p.draw = function() {
+  if (p.MIRROR_VIDEO_FEED == true) {
+    // flip the video vertically to create a video which functions as a mirror
+    p.translate(p.width, 0); // move canvas to the right
+    p.scale(-1.0, 1.0);
+  }
+    // flip x-axis backwards
+  p.image(video, 0, 0);
+//  take on me filter:
+//  p.filter(THRESHOLD, [0.4]);
+//  tainted love filter:
+//  p.filter(INVERT);
+//  blackout filter
+//  p.filter(POSTERIZE);
+
+
 
   p.setup = function () {
     p.createCanvas(640, 480);

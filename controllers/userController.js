@@ -22,18 +22,23 @@ module.exports = {
     if (currentUser) {
       res.status(400).json({ message: "This email is already registered" });
     } else {
-      let newUser = new db.User(req.body);
+      const newUser = new db.User(req.body);
       await newUser.hashPassword(req.body.password)
       newUser
         .save()
-        .then(dbModel => res.json(dbModel))
+        .then(dbModel => {
+          console.log(newUser)
+          req.session.logged_in = true;
+          req.session.user_id = newUser._id;
+          res.status(200).json({sessionID: req.sessionID, user:newUser, message:"User registered" })
+        })
         .catch(err => res.status(422).json(err));
     }
   },
   login: async function (req, res) {
     try {
       const userData = await db.User.findOne({ username: req.body.username }).exec()
-      
+
       if (!userData) {
         res
           .status(400)
@@ -48,22 +53,37 @@ module.exports = {
           .json({ message: "Incorrect user name or password, please try again" });
         return;
       }
-      res.json({ user: userData, message: "You are now logged in!" });
+      req.session.save(() => {
+        req.session.logged_in = true;
+        req.session.user_id = userData.id;
+        res.json({ sessionID: req.sessionID, user:userData, message: "You are now logged in!" });
+      });
     } catch (err) {
       res.status(400).json(err);
     }
+  },
+
+  logout: function (req, res) {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(200).end();
+    }
+  },
+
+  getUserData: function (req, res) {
+    if (!req.session) {
+      res.json(null);
+    } else {
+      db.User.findById({ _id: req.session.user_id })
+      .then(user=>{
+        res.json({
+          user: user,
+          session_id: req.sessionID
+        });
+      })
+    }
   }
-  // update: function(req, res) {
-  //   db.User
-  //     .findOneAndUpdate({ _id: req.params.id }, req.body)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
-  // remove: function(req, res) {
-  //   db.User
-  //     .findById({ _id: req.params.id })
-  //     .then(dbModel => dbModel.remove())
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // }
 };
