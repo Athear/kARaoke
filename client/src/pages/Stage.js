@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -46,8 +45,6 @@ function Stage() {
       <Container fluid>
         <Row>
           <Col size="md-6">
-          <Jumbotron>
-          </Jumbotron>
           <Canvas currentSong={activeSong}/>
           </Col>
           <Col size="md-6 sm-12">
