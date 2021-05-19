@@ -1,5 +1,6 @@
 import React, { useContext, useState, } from "react";
 import { Col, Row, Container } from "../components/Grid";
+import { useHistory } from "react-router-dom";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Input, FormBtn } from "../components/Form";
@@ -7,9 +8,10 @@ import "../css/login.css";
 import { useAuth } from "../utils/use-auth"
 
 function Login() {
-    const [formObject, setFormObject] = useState({});
 
+    const [formObject, setFormObject] = useState({});
     const AUTH = useAuth()
+    const history = useHistory();
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -20,10 +22,8 @@ function Login() {
         e.preventDefault();
         if (formObject.userName && formObject.password) {
             AUTH.signin(formObject.userName, formObject.password)
-                .then(() => console.log("Logged in")) //Placeholder! Do a redirect
-                .catch((err) =>
-                    console.log(err)
-                );
+                .then(() => history.replace("/")) //Placeholder! Do a redirect
+                .catch((err) => console.log(err));
         }
     }
 
@@ -39,10 +39,8 @@ function Login() {
                 formObject.new_email,
                 formObject.new_password,
             )
-                .then(() => console.log("signed up!")) //Placeholder! Do a redirect
-                .catch((err) =>
-                    console.log(err.response.data.message, err.response.status)
-                );
+            .then(() => history.replace("/"))
+            .catch((err) => console.log(err.response.data.message, err.response.status));
         }
     }
 
@@ -50,7 +48,7 @@ function Login() {
     function handleLogout(e) {
         e.preventDefault();
         AUTH.signout()
-            .then(res => console.log("signed out")) //Placeholder! Do a redirect 
+            .then(() => history.replace("/"))
             .catch(err => console.log(err.response.data.message, err.response.status));
     }
 
@@ -58,7 +56,6 @@ function Login() {
     function validateSession(e) {
         console.log(AUTH.user)
         if (AUTH.user) {
-
             console.log('valid!')
         } else {
             console.log('invalid!')
