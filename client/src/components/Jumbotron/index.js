@@ -1,13 +1,18 @@
 import React from "react";
+import "./style.css";
 
-function Jumbotron({ children }) {
+function Jumbotron() {
   return (
-    <div>
-    {/* //   style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
-    //   className="jumbotron"
-    // 
-    //   {children} */}
+   <div>
+   <div className="jumbotron row">
+      <h1 className="title">kARaoke</h1>
     </div>
+      <div className="text-center jumbotron row">
+      <a className="btn btn-lg cta rounded-0" href="/login" role="button">
+      Just duet already!
+      </a>
+      </div>
+      </div>
   );
 }
 

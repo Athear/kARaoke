@@ -4,10 +4,12 @@ import sketch from "./sketch"
 import "./style.css";
 
 
-const Canvas = () => (
+const Canvas = ({currentSong}) => (
 
   <div className="canvas">
-    <P5Wrapper sketch ={sketch}/>
+    <P5Wrapper sketch ={sketch}
+      currentSong={currentSong}
+    />
   </div>
   
 );

@@ -3,7 +3,7 @@ const db = require("../models");
 
 // This file empties the Books collection and inserts the books below
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/karaoke");
 
 const stageSeed = [
   {
@@ -20,7 +20,7 @@ const stageSeed = [
   {
     name: "Wrecking Ball",
     background: "",
-    song: "https://chriscastle.com/temp/chrisg/videos/Miley_Cyrus_Wrecking_Ball_Karaoke.mp4",
+    song: "https://chriscastle.com/temp/chrisg/videos/wreckingBall.mp4",
     costume: 
       {
   
@@ -29,7 +29,7 @@ const stageSeed = [
   },
   {
     name: "Tainted Love",
-    background: "",
+    background: "https://chriscastle.com/temp/chrisg/videos/TaintedLove.mp4",
     song: "",
     filter: "INVERT"
   },
