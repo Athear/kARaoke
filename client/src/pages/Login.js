@@ -46,6 +46,29 @@ function Login() {
     }
   }
 
+
+  function handleLogout(e) {
+    e.preventDefault();
+        API.logout({})
+            .then(res => console.log(res.data.message,res.status)) //Placeholder! Do a redirect 
+            .catch(err => console.log(err.response.data.message,err.response.status));
+}
+
+
+function validateSession(e){
+    e.preventDefault();
+    API.auth()
+    .then(res=>{
+        console.log(res.data.session_id,res.data.user_id)
+        if(res.data.user_id){
+            console.log('valid!')
+        }else{
+            console.log('invalid!')
+        }
+    })
+}
+
+
   return (
     <div className="background">
       <Container fluid>
@@ -103,6 +126,12 @@ function Login() {
             </form>
           </Col>
         </Row>
+        <FormBtn onClick={validateSession}>
+            validate
+        </FormBtn>
+        <FormBtn onClick={handleLogout}>
+            logout
+        </FormBtn>
       </Container>
     </div>
   );
