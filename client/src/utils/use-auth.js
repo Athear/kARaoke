@@ -25,7 +25,7 @@ function useProvideAuth() {
       .then((response) => {
         setUser(response.user);
         return response.user;
-      });
+      })
   };
   const signup = (userName,email, password) => {
     return API.signup({
