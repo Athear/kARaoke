@@ -35,7 +35,7 @@ function Stage() {
 
     const selectedSong = buttons.find(song => song._id === songId)
     
-    console.log(selectedSong);
+    console.log("in click handler: ", selectedSong);
     setSong(selectedSong);
    
   };
