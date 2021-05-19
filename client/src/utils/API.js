@@ -6,7 +6,7 @@ export default {
     return axios.get("/api/stage");
   },
 
-  getStage: function(id) {
+  getStageById: function(id) {
     return axios.get("/api/stage/" + id);
   },
 
@@ -16,5 +16,13 @@ export default {
 
   signup: function (userData) {
     return axios.post("/api/users/signup",userData)
+  },
+
+  logout: function(){
+    return axios.post("/api/users/logout")
+  },
+
+  auth: function () {
+    return axios.get("/api/users/session")
   }
 };

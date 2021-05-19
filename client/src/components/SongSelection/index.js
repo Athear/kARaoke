@@ -5,27 +5,14 @@ import "./style.css";
 
 
 
-function SongSelection() {
+function SongSelection({currentSong}) {
+  console.log("songSelection: ", currentSong.song);
   return (
-
-  //if Miley: play Miley
   <SongVideo
-  mp4="https://chriscastle.com/temp/chrisg/videos/Miley_Cyrus_Wrecking_Ball_Karaoke.mp4"
-  song = "Wrecking Ball"
-  artist = "Miley Cyrus"
+  mp4={currentSong.song}
+  song = {currentSong.name}
   />
   )
 }
-
-//if else play Fred
-
-    // <SongSelection
-    // mp4="https://chriscastle.com/temp/chrisg/videos/ImTooSexy.mp4"
-    // song = "I'm Too Sexy"
-    // artist = "Right Said Fred"
-    // />
-
-    //else MAKE A SELECTION! 
-
 
 export default SongSelection;

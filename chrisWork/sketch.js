@@ -40,7 +40,9 @@ function draw() {
     let eye2 = pose.keypoints[2].position;
     let shoulder1 = pose.keypoints[5].position;
     let shoulder2 = pose.keypoints[6].position;
+    let rightHip = pose.keypoints[12].position;
     let shirtScaleWidth = (shoulder1.x-shoulder2.x);
+    let shirtScaleHeight = (shoulder1.y + rightHip.y)
     let scale = (eye1.x - eye2.x) / 250;
       if (outfit.sunglasses) {
         image(img1, nose.x - 353 * scale, nose.y - 200 * scale, img1.width * scale, img1.height * scale);
@@ -49,7 +51,7 @@ function draw() {
         image(img2, pose.nose.x - 465 * scale, pose.nose.y - 650 * scale, (img2.width + 300) * scale, (img2.height + 100) * scale);
       }
       if (outfit.shirt) {
-        image(img3, pose.rightShoulder.x - 200 * scale, pose.rightShoulder.y - 400 * scale, shirtScaleWidth + 100, shirtScaleWidth);
+        image(img3, pose.rightShoulder.x-50, pose.rightShoulder.y-100, shirtScaleWidth + 100, shirtScaleHeight - 100);
       }
     
   }

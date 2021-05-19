@@ -1,5 +1,6 @@
 const express = require("express");
-
+const session = require("express-session");
+const MongoStore = require('connect-mongo');
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -12,6 +13,19 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+
+//add session storage
+const sess = {
+  secret: "just a little secret",
+  cookie: { secure: false },
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/karaoke" })
+};
+
+app.use(session(sess));
+
 // Add routes, both API and view
 app.use(routes);
 
