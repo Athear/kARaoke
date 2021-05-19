@@ -1,4 +1,4 @@
-
+//creating posenet and attempting to use it
 let video;
 let poseNet;
 let pose;

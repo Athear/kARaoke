@@ -10,34 +10,29 @@ const stageSeed = [
     name: "I'm Too Sexy",
     background: "",
     song: "https://chriscastle.com/temp/chrisg/videos/ImTooSexy.mp4",
-    costume: 
-      {
-        glasses: "https://chriscastle.com/temp/chrisg/gangsta.png",
-        hat: "http://www.chriscastle.com/temp/chrisg/cowboyHat.png",
-        shirt: "https://chriscastle.com/temp/chrisg/fishnetShirt.png",
-      },
+    costume: {
+      glasses: "https://chriscastle.com/temp/chrisg/gangsta.png",
+      hat: "http://www.chriscastle.com/temp/chrisg/cowboyHat.png",
+      shirt: "https://chriscastle.com/temp/chrisg/fishnetShirt.png",
+    },
   },
   {
     name: "Wrecking Ball",
     background: "",
-    song: "https://chriscastle.com/temp/chrisg/videos/wreckingBall.mp4",
-    costume: 
-      {
-  
-      },
-
+    song: "https://chriscastle.com/temp/chrisg/videos/NewWreckingBall.mp4",
+    costume: {},
   },
   {
     name: "Tainted Love",
     background: "https://chriscastle.com/temp/chrisg/videos/TaintedLove.mp4",
     song: "",
-    filter: "INVERT"
+    filter: "INVERT",
   },
   {
     name: "Take on Me",
-    background: "",
+    background: "https://chriscastle.com/temp/chrisg/videos/TakeOnMe.mp4",
     song: "",
-    filter: "THRESHOLD, [0.4]"
+    filter: "THRESHOLD, [0.4]",
   },
 ];
 

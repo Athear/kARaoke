@@ -6,11 +6,10 @@ const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-
   username: {
     type: String,
     trim: true,
-    required: "Username is Required"
+    required: "Username is Required",
   },
 
   password: {
@@ -19,19 +18,19 @@ const UserSchema = new Schema({
     required: "Password is Required",
     validate: [
       ({ length }) => length >= 6,
-      "Password must be at least 6 characters."
-    ]
+      "Password must be at least 6 characters.",
+    ],
   },
 
   email: {
     type: String,
     unique: true,
-    match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+    match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
   },
 
   userCreated: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
 
   lastUpdated: Date,
@@ -41,15 +40,15 @@ const UserSchema = new Schema({
 UserSchema.methods.lastUpdatedDate = function () {
   this.lastUpdated = Date.now();
   return this.lastUpdated;
-}
+};
 
-UserSchema.methods.hashPassword = async function (newPassword){
+UserSchema.methods.hashPassword = async function (newPassword) {
   this.password = await bcrypt.hash(newPassword, 10);
-}
+};
 
-UserSchema.methods.checkPassword = function (loginPw){
+UserSchema.methods.checkPassword = function (loginPw) {
   return bcrypt.compareSync(loginPw, this.password);
-}
+};
 // This creates our model from the above schema, using mongoose's model method
 const User = mongoose.model("User", UserSchema);
 

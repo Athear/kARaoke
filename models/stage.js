@@ -8,9 +8,9 @@ const stageSchema = new Schema({
   costume: {
     type: Map,
     of: String,
-    required: false
+    required: false,
   },
-  filter: { type: String, required: false}
+  filter: { type: String, required: false },
 });
 
 const Stage = mongoose.model("Stage", stageSchema);
