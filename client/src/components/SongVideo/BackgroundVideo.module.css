@@ -13,22 +13,22 @@
 
 img {
     width: 100%;
-    max-width: 650px;
-    min-width: 300px;
+    max-width: 1000px;
+    min-width: 200px;
 }
 
 .Content video{
-    width: 70%;
+    visibility: hidden;
+    width: 80%;
     height: 70%;
     position: absolute;
     align-items: center;
     top:2.5rem;
     left: 2rem;
-    max-width: 700px;
-    max-height: 400px;
+    max-width: 800px;
+    max-height: 500px;
     min-width: 200px;
     min-height: 150px;
-    border-bottom: black solid 2em;
   }
 /* .Content {
     
@@ -42,3 +42,4 @@ img {
     height: 100%;
   
   } */
+
