@@ -41,13 +41,12 @@ function Stage() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
+          <Col size="md-6 sm-12">
           <Canvas currentSong={activeSong}/>
           </Col>
           <Col size="md-6 sm-12">
+            <Row>
           <SongSelection currentSong={activeSong}/>
-           <Row>
-             <Col size="md-6 sm-12">
              {buttons.map((songData) =>(
                <SongButton
                  key={songData._id}
@@ -59,10 +58,9 @@ function Stage() {
                  handleClick={handleClick}
                />
                ))}
-             </Col>
-           </Row>
-          </Col>
-        </Row>
+               </Row>
+               </Col>
+               </Row>
       </Container>
     );
   }

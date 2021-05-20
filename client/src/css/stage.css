@@ -6,3 +6,9 @@ body {
     background-size: cover;
     background-attachment: fixed;  
 }
+
+button {
+    color:rgb(9, 255, 0);
+    font-size: larger;
+    background-color: black;
+}
