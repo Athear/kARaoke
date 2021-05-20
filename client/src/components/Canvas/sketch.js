@@ -101,7 +101,7 @@ function sketch(p, props) {
         );
       }
 
-      
+
       if(filter){
       switch(filter){
         case "INVERT":
