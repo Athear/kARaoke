@@ -22,7 +22,7 @@ function Stage() {
   function loadStage() {
     API.getStage()
       .then(res => 
-        // console.log("api call results: ", res.data),
+        
         setButtons(res.data),
       )
       .catch(err => console.log(err));
@@ -35,9 +35,7 @@ function Stage() {
 
     const selectedSong = buttons.find(song => song._id === songId)
     
-    console.log("in click handler: ", selectedSong);
     setSong(selectedSong);
-   
   };
 
     return (
