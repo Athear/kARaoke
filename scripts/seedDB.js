@@ -23,7 +23,7 @@ const stageSeed = [
     song: "https://chriscastle.com/temp/chrisg/videos/NewWreckingBall.mp4",
     costume: 
       {
-  
+        
       },
 
   },
@@ -31,13 +31,21 @@ const stageSeed = [
     name: "Tainted Love",
     background: "",
     song: "https://chriscastle.com/temp/chrisg/videos/TaintedLove.mp4",
-    filter: "INVERT"
+    costume: 
+      {
+  
+      },
+    filter: "INVERT",
   },
   {
     name: "Take on Me",
     background: "",
     song: "https://chriscastle.com/temp/chrisg/videos/TakeOnMe.mp4",
-    filter: "THRESHOLD, [0.4]"
+    costume: 
+      {
+  
+      },
+    filter: "THRESHOLD, [0.4]",
   },
 ];
 
