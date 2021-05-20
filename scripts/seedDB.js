@@ -23,7 +23,7 @@ const stageSeed = [
     song: "https://chriscastle.com/temp/chrisg/videos/NewWreckingBall.mp4",
     costume: 
       {
-  
+        
       },
 
   },
