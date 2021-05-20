@@ -20,7 +20,7 @@ const stageSeed = [
   {
     name: "Wrecking Ball",
     background: "",
-    song: "https://chriscastle.com/temp/chrisg/videos/wreckingBall.mp4",
+    song: "https://chriscastle.com/temp/chrisg/videos/NewWreckingBall.mp4",
     costume: 
       {
   
@@ -29,14 +29,14 @@ const stageSeed = [
   },
   {
     name: "Tainted Love",
-    background: "https://chriscastle.com/temp/chrisg/videos/TaintedLove.mp4",
-    song: "",
+    background: "",
+    song: "https://chriscastle.com/temp/chrisg/videos/TaintedLove.mp4",
     filter: "INVERT"
   },
   {
     name: "Take on Me",
     background: "",
-    song: "",
+    song: "https://chriscastle.com/temp/chrisg/videos/TakeOnMe.mp4",
     filter: "THRESHOLD, [0.4]"
   },
 ];
