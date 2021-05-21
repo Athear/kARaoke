@@ -6,6 +6,7 @@ import SongSelection from "../components/SongSelection";
 import Canvas from "../components/Canvas/Canvas"
 import SongButton from "../components/SongButton/SongButton";
 import "../css/stage.css";
+import SongVideo from "../components/SongVideo";
 
 function Stage() {
   // Setting our component's initial state
@@ -36,6 +37,8 @@ function Stage() {
     const selectedSong = buttons.find(song => song._id === songId)
     
     setSong(selectedSong);
+    // <video style = {{visibility: 'show'}} />
+   
   };
 
     return (
@@ -53,7 +56,7 @@ function Stage() {
                </Col>
                </Row>
       </Container>
-      <div>
+      <div className = "buttonsDiv">
              {buttons.map((songData) =>(
                <SongButton
                  key={songData._id}
