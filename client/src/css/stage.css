@@ -1,10 +1,15 @@
-* {
-    background-image: url("../images/stage.gif");
+body {
+    /* background-image: url("../images/aditya-chinchure-ZhQCZjr9fHo-unsplash.jpeg"); */
+    background-image: url("../images/background3.jpeg");
     height: auto; 
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;
-    background-attachment: fixed; 
-    
+    background-attachment: fixed;  
+}
 
+button {
+    color:rgb(9, 255, 0);
+    font-size: larger;
+    background-color: black;
 }

@@ -20,27 +20,36 @@ const stageSeed = [
   {
     name: "Wrecking Ball",
     background: "",
-    song: "https://chriscastle.com/temp/chrisg/videos/wreckingBall.mp4",
+    song: "https://chriscastle.com/temp/chrisg/videos/NewWreckingBall.mp4",
     costume: 
       {
+
         glasses: "https://chriscastle.com/temp/chrisg/wreckingBallSunglasses.png",
         hat: "https://chriscastle.com/temp/chrisg/wreckingBallHair2.png",
         shirt: "https://chriscastle.com/temp/chrisg/wreckingBallTop.png"
-  
+
       },
 
   },
   {
     name: "Tainted Love",
-    background: "https://chriscastle.com/temp/chrisg/videos/TaintedLove.mp4",
-    song: "",
-    filter: "INVERT"
+    background: "",
+    song: "https://chriscastle.com/temp/chrisg/videos/TaintedLove.mp4",
+    costume: 
+      {
+  
+      },
+    filter: "INVERT",
   },
   {
     name: "Take on Me",
     background: "",
-    song: "",
-    filter: "THRESHOLD, [0.4]"
+    song: "https://chriscastle.com/temp/chrisg/videos/TakeOnMe.mp4",
+    costume: 
+      {
+  
+      },
+    filter: "THRESHOLD, [0.4]",
   },
 ];
 

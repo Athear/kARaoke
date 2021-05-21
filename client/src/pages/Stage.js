@@ -5,7 +5,7 @@ import { Col, Row, Container } from "../components/Grid";
 import SongSelection from "../components/SongSelection";
 import Canvas from "../components/Canvas/Canvas"
 import SongButton from "../components/SongButton/SongButton";
-// import "../css/stage.css";
+import "../css/stage.css";
 
 function Stage() {
   // Setting our component's initial state
@@ -22,7 +22,7 @@ function Stage() {
   function loadStage() {
     API.getStage()
       .then(res => 
-        // console.log("api call results: ", res.data),
+        
         setButtons(res.data),
       )
       .catch(err => console.log(err));
@@ -35,21 +35,25 @@ function Stage() {
 
     const selectedSong = buttons.find(song => song._id === songId)
     
-    console.log("in click handler: ", selectedSong);
     setSong(selectedSong);
-   
   };
 
     return (
+      <>
       <Container fluid>
         <Row>
-          <Col size="md-6">
+          <Col size="md-6 sm-12">
           <Canvas currentSong={activeSong}/>
           </Col>
           <Col size="md-6 sm-12">
+            <Row>
           <SongSelection currentSong={activeSong}/>
-           <Row>
-             <Col size="md-6 sm-12">
+          
+               </Row>
+               </Col>
+               </Row>
+      </Container>
+      <div>
              {buttons.map((songData) =>(
                <SongButton
                  key={songData._id}
@@ -60,12 +64,10 @@ function Stage() {
                  filter={songData.filter}
                  handleClick={handleClick}
                />
+               
                ))}
-             </Col>
-           </Row>
-          </Col>
-        </Row>
-      </Container>
+          </div>
+          </>
     );
   }
 
