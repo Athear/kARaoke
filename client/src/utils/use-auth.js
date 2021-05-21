@@ -23,9 +23,9 @@ function useProvideAuth() {
         password:password
     })
       .then((response) => {
-        setUser(response.user);
-        return response.user;
-      });
+        setUser(response.data.user);
+        return response.data.user;
+      })
   };
   const signup = (userName,email, password) => {
     return API.signup({
@@ -34,8 +34,8 @@ function useProvideAuth() {
         password:password
     })
       .then((response) => {
-        setUser(response.user);
-        return response.user;
+        setUser(response.data.user);
+        return response.data.user;
       });
   };
   const signout = () => {
@@ -48,7 +48,7 @@ function useProvideAuth() {
   // Subscribe to user on mount
   useEffect(() => {
     const unsubscribe = API.auth().then(res=>{
-        if(res.data.user){
+        if(res.data && res.data.user){
             setUser(res.data.user);
         }else{
             setUser(false);
