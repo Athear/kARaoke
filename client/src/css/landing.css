@@ -15,7 +15,9 @@
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;
+ border-bottom: solid 1px black;
 }
+
 
   h1.blank {
     height: 100vh;
