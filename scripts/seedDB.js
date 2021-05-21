@@ -23,6 +23,9 @@ const stageSeed = [
     song: "https://chriscastle.com/temp/chrisg/videos/wreckingBall.mp4",
     costume: 
       {
+        glasses: "https://chriscastle.com/temp/chrisg/wreckingBallSunglasses.png",
+        hat: "https://chriscastle.com/temp/chrisg/wreckingBallHair2.png",
+        shirt: "https://chriscastle.com/temp/chrisg/wreckingBallTop.png"
   
       },
 
