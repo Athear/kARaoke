@@ -19,30 +19,29 @@ import classes from "./BackgroundVideo.module.css";
 //     /> 
 //   }
 
-const SongVideo = ({ mp4, song }) => {
+const SongVideo = ({ mp4, song, videoref, imgref}) => {
   return (
     <div className={classes.Container} >
       <div className={classes.Image} >
         <img id = "karaokemachine"
           src={monitor}
           alt="monitor"
+          ref={imgref}
         />
       </div>
       <div className={classes.Content}>
         <div className={classes.SubContent, classes.Video} >
-          {/* <button>TEST</button> */}
           <video className="test"
-            // width="55%"
-            // height="fit-content"
             controls
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             title={song}
             autoPlay={false}
-            muted={true}
+            muted={false}
             playsInLine
             src={mp4}
+            ref={videoref}
           />
         </div>
 
