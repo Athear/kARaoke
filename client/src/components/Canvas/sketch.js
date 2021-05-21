@@ -27,7 +27,8 @@ function sketch(p, props) {
   };
 
   p.setup = function () {
-    p.createCanvas(640, 480);
+    // p.createCanvas(640, 480);
+    p.createCanvas(1000, 1000);
 
     video = p.createCapture(p.VIDEO);
     video.hide();
@@ -63,7 +64,8 @@ function sketch(p, props) {
   };
 
   p.draw = function () {
-    p.image(video, 0, 0);
+    // p.image(video, 0, 0);
+    p.image(video, 200, 200);
 
     if (pose) {
       let nose = pose.keypoints[0].position;
@@ -119,7 +121,7 @@ function sketch(p, props) {
   // creating a button with a saveAsCanvas function to create and save a screenshot
   const saveImageBtn = p.createElement(
     "span",
-    '<i style="color:blueviolet;" class="fas fa-camera fa-3x"></i>'
+    '<i style="color:rgb(9, 255, 0)" class="fas fa-camera fa-3x"></i>'
   );
   saveImageBtn.position(20, 400);
   saveImageBtn.mousePressed(saveAsCanvas);

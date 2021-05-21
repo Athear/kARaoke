@@ -39,6 +39,7 @@ function Stage() {
   };
 
     return (
+      <>
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">
@@ -47,6 +48,12 @@ function Stage() {
           <Col size="md-6 sm-12">
             <Row>
           <SongSelection currentSong={activeSong}/>
+          
+               </Row>
+               </Col>
+               </Row>
+      </Container>
+      <div>
              {buttons.map((songData) =>(
                <SongButton
                  key={songData._id}
@@ -57,11 +64,10 @@ function Stage() {
                  filter={songData.filter}
                  handleClick={handleClick}
                />
+               
                ))}
-               </Row>
-               </Col>
-               </Row>
-      </Container>
+          </div>
+          </>
     );
   }
 
