@@ -23,7 +23,7 @@ const SongVideo = ({ mp4, song }) => {
   return (
     <div className={classes.Container} >
       <div className={classes.Image} >
-        <img
+        <img id = "karaokemachine"
           src={monitor}
           alt="monitor"
         />

@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 function SongButton({id, title, costume, src, filter, handleClick}) {
     // console.log("songbutton props: ", id, title, costume, src, filter)
