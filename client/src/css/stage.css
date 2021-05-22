@@ -10,10 +10,12 @@ body {
 
 button {
     color:rgb(9, 255, 0);
-    font-size: largest;
     background-color: black;
-    max-height: 200px;
-    padding: 7%;
+    border: none;
+    padding-top: 1%;
+    padding-bottom: 1%;
+   
+    
 }
 
 span {
@@ -30,15 +32,47 @@ box-shadow: 3px 10px 15px rgba(0, 255, 9, 0.904);
 }
 
 .buttonsDiv {
-    position: absolute;
-    top: 28%;
-    right: 9.5%;
-    width: 400px;
+     position: absolute;
+    /* top: 28%;
+    right: 9.5%; */
+   max-width: 700px;
+   height: 100%;
+   width: 100%;
     font-family: 'Ubuntu', sans-serif;
     font-size: 18px;
+    background-image: url("https://chriscastle.com/temp/chrisg/machine.png");
+    background-repeat: no-repeat;
   
 }
 
 .buttonsDiv :hover {
 color: rgb(235, 14, 224);
 }
+
+/* looks fine under 715 X 1260 */
+.class60a9276511d39152e07e1fdc {
+    margin-top:12.5%;
+    margin-bottom: 2%;
+    margin-left: 32%;
+    width: 175px;
+}
+
+.class60a9276511d39152e07e1fdd {
+    margin-top: 12.5%;
+    margin-bottom: 2%;
+    width: 175px;
+    margin-left: 5px;
+    
+}
+
+.class60a9276511d39152e07e1fde {
+    width: 175px;
+    margin-left: 225px;
+    margin-right: 5px;
+}
+
+.class60a9276511d39152e07e1fdf {
+    margin-top: 0%;
+    width: 175px;
+}
+
