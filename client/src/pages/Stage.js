@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import API from "../utils/API";
-// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import SongSelection from "../components/SongSelection";
 import Canvas from "../components/Canvas/Canvas"
 import SongButton from "../components/SongButton/SongButton";
 import "../css/stage.css";
-import SongVideo from "../components/SongVideo";
 
 function Stage() {
   // Setting our component's initial state
