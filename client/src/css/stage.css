@@ -10,6 +10,35 @@ body {
 
 button {
     color:rgb(9, 255, 0);
-    font-size: larger;
+    font-size: largest;
     background-color: black;
+    max-height: 200px;
+    padding: 7%;
+}
+
+span {
+ margin-left: 4px;
+ background-color: black;
+}
+
+span :hover{
+ margin-left: -4px;
+ border-left: black 4px solid;
+ border-right: black 4px solid;
+background-color: black;
+box-shadow: 3px 10px 15px rgba(0, 255, 9, 0.904);
+}
+
+.buttonsDiv {
+    position: absolute;
+    top: 28%;
+    right: 9.5%;
+    width: 400px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+  
+}
+
+.buttonsDiv :hover {
+color: rgb(235, 14, 224);
 }

@@ -74,7 +74,7 @@ module.exports = {
   },
 
   getUserData: function (req, res) {
-    if (!req.session) {
+    if (!req.session.logged_in) {
       res.json(null);
     } else {
       db.User.findById({ _id: req.session.user_id })

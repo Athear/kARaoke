@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-// This file empties the Books collection and inserts the books below
+// This file empties the stage collection and inserts the stages below
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/karaoke");
 
@@ -55,6 +55,52 @@ const stageSeed = [
 
 db.Stage.remove({})
   .then(() => db.Stage.collection.insertMany(stageSeed))
+  .then((data) => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+
+
+  const userSeed = [
+    {
+      username: "carolyn_h",
+      password: "$2b$10$jdH.Kz2AM32ucOSBIS2SD.PKyX47fIUEKikrjotUnegubk2CHaJpa",
+      email: "carolyn@carolyn.com"
+
+    },
+    {
+      username: "markki_m",
+      password: "$2b$10$jdH.Kz2AM32ucOSBIS2SD.PKyX47fIUEKikrjotUnegubk2CHaJpa",
+      email: "markki@markki.com"
+
+    },
+    {
+      username: "chris_g",
+      password: "$2b$10$jdH.Kz2AM32ucOSBIS2SD.PKyX47fIUEKikrjotUnegubk2CHaJpa",
+      email: "chris@chris.com"
+
+    },
+    {
+      username: "todd_m",
+      password: "$2b$10$jdH.Kz2AM32ucOSBIS2SD.PKyX47fIUEKikrjotUnegubk2CHaJpa",
+      email: "todd@todd.com"
+
+    },
+    {
+      username: "jennifer_n",
+      password: "$2b$10$jdH.Kz2AM32ucOSBIS2SD.PKyX47fIUEKikrjotUnegubk2CHaJpa",
+      email: "jen@jen.com"
+
+    },
+  ]
+
+
+  db.User.remove({})
+  .then(() => db.User.collection.insertMany(userSeed))
   .then((data) => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
