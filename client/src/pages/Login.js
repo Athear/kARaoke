@@ -1,8 +1,6 @@
-import React, { useContext, useState, } from "react";
+import React, { useState, } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import { useHistory, useLocation } from "react-router-dom";
-import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
 import { Input, FormBtn } from "../components/Form";
 import "../css/login.css";
 import { useAuth } from "../utils/use-auth"

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import API from "../utils/API";
-// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import SongSelection from "../components/SongSelection";
 import Canvas from "../components/Canvas/Canvas"

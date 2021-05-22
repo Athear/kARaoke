@@ -30,7 +30,7 @@ const SongVideo = ({ mp4, song, videoref, imgref}) => {
         />
       </div>
       <div className={classes.Content}>
-        <div className={classes.SubContent, classes.Video} >
+        <div className={classes.SubContent+" "+classes.Video} >
           <video className="test"
             controls
             frameBorder="0"
@@ -39,7 +39,7 @@ const SongVideo = ({ mp4, song, videoref, imgref}) => {
             title={song}
             autoPlay={false}
             muted={false}
-            playsInLine
+            playsInline
             src={mp4}
             ref={videoref}
           />
