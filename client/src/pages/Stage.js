@@ -7,6 +7,7 @@ import Canvas from "../components/Canvas/Canvas"
 import SongButton from "../components/SongButton/SongButton";
 import "../css/stage.css";
 import SongVideo from "../components/SongVideo";
+import StageHeader from "../components/StageHeader";
 
 function Stage() {
   // Setting our component's initial state
@@ -52,6 +53,7 @@ function Stage() {
 
     return (
       <>
+      <StageHeader></StageHeader>
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">

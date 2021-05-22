@@ -1,18 +1,18 @@
-/* .color{
-  background-color: black;
-} */
 
-
-.title {
+.stageTitle {
   text-align: center;
   font-family: "Train One", cursive;
-  font-size: 8vw;
-  margin-bottom: 15px;
+  font-size: 7vw;
 
   -webkit-background-clip: text;
   color: transparent;
 
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../../images/aditya-chinchure-ZhQCZjr9fHo-unsplash.jpeg");
+  background-image: url("../../images/snow.gif");
+}
+
+p {
+  color: lime;
+ font-size: 28px;
 }

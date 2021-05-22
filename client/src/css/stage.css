@@ -14,8 +14,6 @@ button {
     background-color: black;
     max-height: 200px;
     padding: 7%;
-    transition: all 0.2s ease-in-out;
-    
 }
 
 span {
@@ -33,7 +31,7 @@ box-shadow: 3px 10px 15px rgba(0, 255, 9, 0.904);
 
 .buttonsDiv {
     position: absolute;
-    top: 9%;
+    top: 28%;
     right: 9.5%;
     width: 400px;
     font-family: 'Ubuntu', sans-serif;
