@@ -94,6 +94,9 @@ function sketch(p) {
     }
   };
 
+
+
+
   p.draw = function () {
     p.image(video, 0, 0);
     // p.image(video, 200, 200);
@@ -191,6 +194,19 @@ function sketch(p) {
   function saveAsCanvas() {
     p.save("karaoke_canvas.png");
   }
+
+  // const resetBtn = p.createElement(
+  //   "span",
+  //   '<i style="color:rgb(9, 255, 0)" class="fas fa-repeat fa-3x"></i>'
+  // );
+  // resetBtn.position(20,450);
+  // resetBtn.mousePressed(resetSketch);
+  // console.log("reset pressed")
+
+  // function resetSketch () {
+  //   p.draw()
+  // }
+
 }
 
 // Here is the url for serving pics for dev http://www.chriscastle.com/temp/chrisg/ http://ftp.chriscastle.com/videos/yt1s.com%20-%20Miley%20Cyrus%20%20Wrecking%20Ball%20Karaoke%20Version.mp4
