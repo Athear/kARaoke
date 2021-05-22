@@ -48,8 +48,9 @@ function sketch(p) {
   };
 
   p.setup = function () {
-    p.createCanvas(640, 480);
+    let cnv = p.createCanvas(640, 480);
     // p.createCanvas(1000, 1000);
+    cnv.position(80,100);
 
     video = p.createCapture(p.VIDEO);
     video.hide();
