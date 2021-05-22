@@ -33,6 +33,6 @@ button :hover{
   
 }
 
-video {
-    visibility: show;
+.test {
+ display: none;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -14,6 +14,9 @@ function Stage() {
 
   const [activeSong, setSong] = useState({})
 
+  const videoref = useRef();
+  const buttonref = useRef();
+  const imgref = useRef();
   // Load and set stage with setStage
   useEffect(() => {
     loadStage()
@@ -36,9 +39,15 @@ function Stage() {
 
     const selectedSong = buttons.find(song => song._id === songId)
     
+
+// const lyricvideo = document.getElementsByClassName("test");
+// lyricvideo.style.visbility = "show";
+
     setSong(selectedSong);
     // <video style = {{visibility: 'show'}} />
-   
+   videoref.current.style.display = "block";
+   buttonref.current.style.display = "none";
+   imgref.current.style.display = "none";
   };
 
     return (
@@ -50,13 +59,17 @@ function Stage() {
           </Col>
           <Col size="md-6 sm-12">
             <Row>
-          <SongSelection currentSong={activeSong}/>
+          <SongSelection currentSong={activeSong}
+          videoref={videoref}
+          imgref={imgref}
+          />
           
                </Row>
                </Col>
                </Row>
       </Container>
-      <div className = "buttonsDiv">
+      <div className = "buttonsDiv"
+      ref={buttonref}>
              {buttons.map((songData) =>(
                <SongButton
                  key={songData._id}
@@ -66,6 +79,7 @@ function Stage() {
                  src={songData.song}
                  filter={songData.filter}
                  handleClick={handleClick}
+                 
                />
                
                ))}
