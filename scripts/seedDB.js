@@ -68,35 +68,36 @@ db.Stage.remove({})
   const userSeed = [
     {
       username: "carolyn_h",
-      password: "password12345",
+      password: "$2b$10$jdH.Kz2AM32ucOSBIS2SD.PKyX47fIUEKikrjotUnegubk2CHaJpa",
       email: "carolyn@carolyn.com"
 
     },
     {
       username: "markki_m",
-      password: "password12345",
+      password: "$2b$10$jdH.Kz2AM32ucOSBIS2SD.PKyX47fIUEKikrjotUnegubk2CHaJpa",
       email: "markki@markki.com"
 
     },
     {
       username: "chris_g",
-      password: "password12345",
+      password: "$2b$10$jdH.Kz2AM32ucOSBIS2SD.PKyX47fIUEKikrjotUnegubk2CHaJpa",
       email: "chris@chris.com"
 
     },
     {
       username: "todd_m",
-      password: "password12345",
+      password: "$2b$10$jdH.Kz2AM32ucOSBIS2SD.PKyX47fIUEKikrjotUnegubk2CHaJpa",
       email: "todd@todd.com"
 
     },
     {
       username: "jennifer_n",
-      password: "password12345",
+      password: "$2b$10$jdH.Kz2AM32ucOSBIS2SD.PKyX47fIUEKikrjotUnegubk2CHaJpa",
       email: "jen@jen.com"
 
     },
   ]
+
 
   db.User.remove({})
   .then(() => db.User.collection.insertMany(userSeed))
