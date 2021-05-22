@@ -42,7 +42,7 @@ const stageSeed = [
     filter: "INVERT",
   },
   {
-    name: "Take on Meee",
+    name: "Take on Me",
     background: "",
     song: "https://chriscastle.com/temp/chrisg/videos/TakeOnMe.mp4",
     costume: 
