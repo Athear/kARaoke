@@ -24,7 +24,7 @@ const SongVideo = ({ mp4, song, videoref, imgref}) => {
     <div className={classes.Container} >
       <div className={classes.Image} >
         <img id = "karaokemachine"
-          src={monitor}
+          src="https://chriscastle.com/temp/chrisg/machine.png"
           alt="monitor"
           ref={imgref}
         />
