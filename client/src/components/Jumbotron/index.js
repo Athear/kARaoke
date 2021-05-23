@@ -8,7 +8,7 @@ function Jumbotron() {
       <h1 className="title">kARaoke</h1>
     </div>
       <div className="text-center jumbotron row">
-      <a className="btn btn-lg cta rounded-0" href="/login" role="button">
+      <a className="btn btn-lg cta rounded-0" href="/stage" role="button">
       Just duet already!
       </a>
       </div>
