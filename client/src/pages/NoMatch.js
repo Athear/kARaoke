@@ -10,11 +10,11 @@ function NoMatch() {
   useEffect(() => {
     axios
       .get(
-        "https://api.giphy.com/v1/gifs/search?q=wrong&api_key=EDFnIGDFop0J3dJnQid2JTnCB0KZteY5&limit=1"
+        "https://api.giphy.com/v1/gifs/random?api_key=EDFnIGDFop0J3dJnQid2JTnCB0KZteY5&tag=wrong&rating=pg-13"
       )
       .then(
         (result) => {
-          setItems(result.data.data);
+          setItems([result.data.data]);
           console.log(result);
         },
         (error) => {
