@@ -1,6 +1,10 @@
 import * as ml5 from "ml5";
 
 function sketch(p) {
+  //Parent functions
+  let logout;
+
+
   //"I'm Too Sexy" variables
   let glasses1_preload;
   let hat1_preload;
@@ -69,7 +73,10 @@ function sketch(p) {
     console.log("poseNet ready");
   }
 
-  p.myCustomRedrawAccordingToNewPropsHandler = function ({ currentSong }) {
+  p.myCustomRedrawAccordingToNewPropsHandler = function ({ currentSong,signout }) {
+    //set parent functions
+    logout = signout;
+
     let name = currentSong.name;
     let costume = currentSong.costume;
     filter = currentSong.filter;
@@ -179,6 +186,7 @@ function sketch(p) {
       }
     }
   };
+  
   // creating a button with a saveAsCanvas function to create and save a screenshot
   const saveImageBtn = p.createElement(
     "span",
@@ -190,6 +198,7 @@ function sketch(p) {
   function saveAsCanvas() {
     p.save("karaoke_canvas.png");
   }
+  
   //button to reset the page
   const resetBtn = p.createElement(
     "span",
@@ -201,6 +210,19 @@ function sketch(p) {
   function resetSketch() {
     window.location.reload();
   }
+
+  //button for signing out
+  const signOutBtn = p.createElement(
+    "span",
+    '<i style="color:rgb(9, 255, 0)" class="fas fa-sign-out-alt fa-3x"></i>'
+  );
+  signOutBtn.position(20,450);
+  signOutBtn.mousePressed(signOut);
+  
+  function signOut () {
+    logout();
+  }
+
 }
 // Here is the url for serving pics for dev http://www.chriscastle.com/temp/chrisg/ http://ftp.chriscastle.com/videos/yt1s.com%20-%20Miley%20Cyrus%20%20Wrecking%20Ball%20Karaoke%20Version.mp4
 //ftp.chriscastle.com/videos/

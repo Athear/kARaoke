@@ -5,22 +5,17 @@ import "./style.css";
 import { useAuth } from "../../utils/use-auth";
 
 
-
 const Canvas = ({currentSong}) => {
   
   const { signout } = useAuth();
-  console.log(signout);
   
   return (
-
- 
   <div className="canvas">
-  <button onClick = {signout}className="btn"><i class="fas fa-sign-out-alt fa-3x"></i> </button>
     <P5Wrapper sketch ={sketch}
       currentSong={currentSong}
+      signout={signout}
     />
   </div>
-
 )};
 
 
