@@ -195,17 +195,17 @@ function sketch(p) {
     p.save("karaoke_canvas.png");
   }
 
-  // const resetBtn = p.createElement(
-  //   "span",
-  //   '<i style="color:rgb(9, 255, 0)" class="fas fa-repeat fa-3x"></i>'
-  // );
-  // resetBtn.position(20,450);
-  // resetBtn.mousePressed(resetSketch);
-  // console.log("reset pressed")
+  const resetBtn = p.createElement(
+    "span",
+    '<i style="color:rgb(9, 255, 0)" class="fas fa-redo fa-3x"></i>'
+  );
+  resetBtn.position(20,470);
+  resetBtn.mousePressed(resetSketch);
+  console.log("reset pressed")
 
-  // function resetSketch () {
-  //   p.draw()
-  // }
+  function resetSketch () {
+    window.location.reload()
+  }
 
 }
 
