@@ -15,7 +15,7 @@ const Canvas = ({currentSong}) => {
 
  
   <div className="canvas">
-  <button onClick = {signout}className="btn"><i class="fa-sign-out-alt fa-3x"></i> </button>
+  <button onClick = {signout}className="btn"><i class="fas fa-sign-out-alt fa-3x"></i> </button>
     <P5Wrapper sketch ={sketch}
       currentSong={currentSong}
     />
