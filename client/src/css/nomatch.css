@@ -1,0 +1,10 @@
+
+img {
+    margin-top: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 400px;
+    position: relative;
+  }
