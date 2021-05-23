@@ -14,8 +14,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-console.log("PROCESS VARIABLES",process.env)
-
 //add session storage
 const sess = {
   secret: "just a little secret",

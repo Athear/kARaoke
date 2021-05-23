@@ -49,8 +49,8 @@ function sketch(p) {
 
   p.setup = function () {
     let cnv = p.createCanvas(640, 480);
-    // p.createCanvas(1000, 1000);
-    cnv.position(80,100);
+   
+    cnv.position(100,150);
 
     video = p.createCapture(p.VIDEO);
     video.hide();
@@ -93,6 +93,9 @@ function sketch(p) {
       }
     }
   };
+
+
+
 
   p.draw = function () {
     p.image(video, 0, 0);
@@ -185,12 +188,37 @@ function sketch(p) {
     "span",
     '<i style="color:rgb(9, 255, 0)" class="fas fa-camera fa-3x"></i>'
   );
-  saveImageBtn.position(20, 400);
+  saveImageBtn.position(20, 300);
   saveImageBtn.mousePressed(saveAsCanvas);
 
   function saveAsCanvas() {
     p.save("karaoke_canvas.png");
   }
+
+  const resetBtn = p.createElement(
+    "span",
+    '<i style="color:rgb(9, 255, 0)" class="fas fa-redo fa-3x"></i>'
+  );
+  resetBtn.position(20,375);
+  resetBtn.mousePressed(resetSketch);
+  console.log("reset pressed")
+
+  function resetSketch () {
+    window.location.reload()
+  }
+
+  const signOutBtn = p.createElement(
+    "span",
+    '<i style="color:rgb(9, 255, 0)" class="fas fa-sign-out-alt fa-3x"></i>');
+
+
+    signOutBtn.position(20,450);
+    signOutBtn.mousePressed(signOut);
+  
+    function signOut () {
+      window.location.reload()
+    }
+ 
 }
 
 // Here is the url for serving pics for dev http://www.chriscastle.com/temp/chrisg/ http://ftp.chriscastle.com/videos/yt1s.com%20-%20Miley%20Cyrus%20%20Wrecking%20Ball%20Karaoke%20Version.mp4

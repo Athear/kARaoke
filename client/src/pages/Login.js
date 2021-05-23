@@ -1,9 +1,11 @@
 import React, { useState, } from "react";
-import { Col, Row, Container } from "../components/Grid";
 import { useHistory, useLocation } from "react-router-dom";
+import sweetAlert from 'sweetalert2'
+import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
-import "../css/login.css";
 import { useAuth } from "../utils/use-auth"
+import "../css/login.css";
+
 
 function Login() {
 
@@ -21,12 +23,20 @@ function Login() {
         setFormObject({ ...formObject, [name]: value });
     }
 
+    function onErrorHandler(message,status){
+        sweetAlert.fire({
+            icon: 'warning',
+            title: message,
+            footer: 'Error: ' + status
+          })
+    }
+
     function handleLogin(e) {
         e.preventDefault();
         if (formObject.userName && formObject.password) {
             AUTH.signin(formObject.userName, formObject.password)
                 .then(handleRedirect)
-                .catch((err) => console.log(err));
+                .catch((err) => onErrorHandler(err.response.data.message,err.response.status));
         }
     }
 
@@ -43,7 +53,7 @@ function Login() {
                 formObject.new_password,
             )
             .then(handleRedirect)
-            .catch((err) => console.log(err.response.data.message, err.response.status));
+            .catch((err) => onErrorHandler(err.response.data.message, err.response.status));
         }
     }
 
@@ -51,17 +61,37 @@ function Login() {
     function handleLogout(e) {
         e.preventDefault();
         AUTH.signout()
-            .then(() => history.push("/"))
-            .catch(err => console.log(err.response.data.message, err.response.status));
+            .then(() => {
+                sweetAlert.fire({
+                    title: 'Log out?',
+                    // text: "You won't be able to revert this!",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'See you later, Aligator!'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        history.push("/")
+                    }
+                  })
+                })
+            .catch(err => onErrorHandler(err.response.data.message, err.response.status));
     }
 
 
     function validateSession(e) {
-        console.log(AUTH.user)
         if (AUTH.user) {
-            console.log('valid!')
+            sweetAlert.fire({
+                icon: 'success',
+                text: 'You are logged in!!',
+                footer: 'user name: '+AUTH.user.username
+              })
         } else {
-            console.log('invalid!')
+            sweetAlert.fire({
+                icon: 'warning',
+                text: 'You are not logged in',
+              })
         }
     }
 

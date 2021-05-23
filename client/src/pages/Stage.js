@@ -16,7 +16,6 @@ function Stage() {
 
   const videoref = useRef();
   const buttonref = useRef();
-  const imgref = useRef();
   // Load and set stage with setStage
   useEffect(() => {
     loadStage()
@@ -25,69 +24,75 @@ function Stage() {
   // Calls database and sets state of buttons
   function loadStage() {
     API.getStage()
-      .then(res => 
-        
+      .then(res =>
+
         setButtons(res.data),
       )
       .catch(err => console.log(err));
   };
 
- // Handles updating component state when the user clicks button
+  // Handles updating component state when the user clicks button
   function handleClick(event) {
     event.preventDefault();
     const songId = event.target.id
 
     const selectedSong = buttons.find(song => song._id === songId)
-    
 
-// const lyricvideo = document.getElementsByClassName("test");
-// lyricvideo.style.visbility = "show";
+
+    // const lyricvideo = document.getElementsByClassName("test");
+    // lyricvideo.style.visbility = "show";
 
     setSong(selectedSong);
     // <video style = {{visibility: 'show'}} />
-   videoref.current.style.display = "block";
-   buttonref.current.style.display = "none";
-   imgref.current.style.display = "none";
+    videoref.current.style.display = "block";
+    buttonref.current.style.display = "none";
   };
 
-    return (
-      <>
+  return (
+    <>
       <StageHeader></StageHeader>
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">
-          <Canvas currentSong={activeSong}/>
+            <Canvas currentSong={activeSong} />
           </Col>
           <Col size="md-6 sm-12">
             <Row>
-          <SongSelection currentSong={activeSong}
-          videoref={videoref}
-          imgref={imgref}
-          />
-          
-               </Row>
-               </Col>
-               </Row>
+              <SongSelection currentSong={activeSong}
+                videoref={videoref}
+              />
+
+            </Row>
+          </Col>
+        </Row>
       </Container>
-      <div className = "buttonsDiv"
-      ref={buttonref}>
-             {buttons.map((songData) =>(
-               <SongButton
-                 key={songData._id}
-                 id={songData._id}
-                 title={songData.name}
-                 costume={songData.costume}
-                 src={songData.song}
-                 filter={songData.filter}
-                 handleClick={handleClick}
-                 
-               />
-               
+      <Row>
+        <Col size="md-6 sm-12">
+        </Col>
+        
+        <Col size="md-6 sm-12">
+          <div className="buttonsDiv"
+            ref={buttonref}>
+            {buttons.map((songData) => (
+              <SongButton
+                key={songData._id}
+                id={songData._id}
+                title={songData.name}
+                costume={songData.costume}
+                src={songData.song}
+                filter={songData.filter}
+                handleClick={handleClick}
+                
+
+              />
+              
                ))}
-          </div>
-          </>
-    );
-  }
+               </div>
+                </Col>
+               </Row>
+    </>
+  );
+}
 
 
 export default Stage;

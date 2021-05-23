@@ -1,5 +1,3 @@
-const { restart } = require("nodemon");
-const { User } = require("../models");
 const db = require("../models");
 
 // Defining methods for the UsersController
