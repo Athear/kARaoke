@@ -8,7 +8,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/karaoke");
 const stageSeed = [
   {
     name: "I'm Too Sexy",
-    background: "",
+    cover: "https://chriscastle.com/temp/chrisg/albumCovers/ImTooSexyCover.png",
     song: "https://chriscastle.com/temp/chrisg/videos/ImTooSexy.mp4",
     costume: 
       {
@@ -19,7 +19,7 @@ const stageSeed = [
   },
   {
     name: "Wrecking Ball",
-    background: "",
+    cover: "https://chriscastle.com/temp/chrisg/albumCovers/WreckingBallCover.png",
     song: "https://chriscastle.com/temp/chrisg/videos/NewWreckingBall.mp4",
     costume: 
       {
@@ -33,7 +33,7 @@ const stageSeed = [
   },
   {
     name: "Tainted Love",
-    background: "",
+    cover: "https://chriscastle.com/temp/chrisg/albumCovers/TaintedLoveCover.png",
     song: "https://chriscastle.com/temp/chrisg/videos/TaintedLove.mp4",
     costume: 
       {
@@ -43,7 +43,7 @@ const stageSeed = [
   },
   {
     name: "Take on Me",
-    background: "",
+    cover: "https://chriscastle.com/temp/chrisg/albumCovers/TakeOnMeCover.png",
     song: "https://chriscastle.com/temp/chrisg/videos/TakeOnMe.mp4",
     costume: 
       {

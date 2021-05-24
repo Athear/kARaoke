@@ -2,6 +2,7 @@ let img;
 let video;
 let poseNet;
 let pose;
+p5.disableFriendlyErrors = true;
 
 let outfit = {
   sunglasses: false,
@@ -10,9 +11,14 @@ let outfit = {
 };
 
 function preload() {
-  img1 = loadImage("https://chriscastle.com/temp/chrisg/aviators.png");
-  img2 = loadImage("https://www.chriscastle.com/temp/chrisg/cowboy.png");
-  img3 = loadImage("https://chriscastle.com/temp/chrisg/fishnetShirt.png");
+  img1 = loadImage(
+    "https://chriscastle.com/temp/chrisg/wreckingBallSunglasses.png"
+  );
+  img2 = loadImage(
+    "https://www.chriscastle.com/temp/chrisg/wreckingBallHair2.png"
+  );
+  img3 = loadImage("https://chriscastle.com/temp/chrisg/wreckingBallTop.png");
+  img4 = loadImage("https://chriscastle.com/temp/chrisg/mic.png");
 }
 
 function setup() {
@@ -38,22 +44,47 @@ function draw() {
     let nose = pose.keypoints[0].position;
     let eye1 = pose.keypoints[1].position;
     let eye2 = pose.keypoints[2].position;
+    let rightWrist = pose.keypoints[10].position;
     let shoulder1 = pose.keypoints[5].position;
     let shoulder2 = pose.keypoints[6].position;
     let rightHip = pose.keypoints[12].position;
-    let shirtScaleWidth = (shoulder1.x-shoulder2.x);
-    let shirtScaleHeight = (shoulder1.y + rightHip.y);
+    let shirtScaleWidth = shoulder1.x - shoulder2.x;
+    let shirtScaleHeight = shoulder1.y + rightHip.y;
     let scale = (eye1.x - eye2.x) / 250;
-      if (outfit.sunglasses) {
-        image(img1, nose.x - 353 * scale, nose.y - 200 * scale, img1.width * scale, img1.height * scale);
-      }
-      if (outfit.hat) {
-        image(img2, pose.nose.x - 465 * scale, pose.nose.y - 650 * scale, (img2.width + 300) * scale, (img2.height + 100) * scale);
-      }
-      if (outfit.shirt) {
-        image(img3, pose.rightShoulder.x-50, pose.rightShoulder.y-100, shirtScaleWidth + 100, shirtScaleHeight - 250);
-      }
-    
+    if (outfit.sunglasses) {
+      image(
+        img1,
+        nose.x - 353 * scale,
+        nose.y - 200 * scale,
+        img1.width * scale,
+        img1.height * scale
+      );
+    }
+    if (outfit.hat) {
+      image(
+        img2,
+        pose.nose.x - 465 * scale,
+        pose.nose.y - 550 * scale,
+        (img2.width + 300) * scale,
+        (img2.height + 100) * scale
+      );
+    }
+    if (outfit.shirt) {
+      image(
+        img3,
+        pose.rightShoulder.x - 50,
+        pose.rightShoulder.y - 100,
+        shirtScaleWidth + 100,
+        shirtScaleHeight - 250
+      );
+    }
+    image(
+      img4,
+      pose.rightWrist.x - 100,
+      pose.rightWrist.y - 300,
+      img4.width,
+      img4.height
+    );
   }
 }
 document.getElementById("btns").addEventListener("toggle", (e) => {
@@ -63,7 +94,6 @@ document.getElementById("btns").addEventListener("toggle", (e) => {
 function mousePressed(e) {
   outfit[e.target.id] = !outfit[e.target.id];
   redraw();
-  console.log(outfit);
 }
 
 // Here is the url for serving pics for dev http://www.chriscastle.com/temp/chrisg/ http://ftp.chriscastle.com/videos/yt1s.com%20-%20Miley%20Cyrus%20%20Wrecking%20Ball%20Karaoke%20Version.mp4

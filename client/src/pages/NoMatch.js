@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Row, Container } from "../components/Grid";
 import axios from "axios";
 import "../css/nomatch.css";
+import GIPHY_API from "../../../.env"
 
 function NoMatch() {
   const [error, setError] = useState(null);
@@ -10,11 +11,11 @@ function NoMatch() {
   useEffect(() => {
     axios
       .get(
-        "https://api.giphy.com/v1/gifs/search?q=wrong&api_key=EDFnIGDFop0J3dJnQid2JTnCB0KZteY5&limit=1"
+        "https://api.giphy.com/v1/gifs/random?api_key=EDFnIGDFop0J3dJnQid2JTnCB0KZteY5&tag=wrong&rating=pg"
       )
       .then(
         (result) => {
-          setItems(result.data.data);
+          setItems([result.data.data]);
           console.log(result);
         },
         (error) => {
@@ -30,6 +31,7 @@ function NoMatch() {
       <Container>
         <Row>
           <Row>
+          <h1>404-this page doesn't exist</h1>
             <div className="giphyContainer">
               <ul>
                 {items.map((item) => (
