@@ -85,6 +85,14 @@ function sketch(p) {
     let costume = currentSong.costume;
     filter = currentSong.filter;
 
+    //empty costume vars
+    glasses1= '';
+    hat1='';
+    shirt1='';
+    glasses2= '';
+    hat2='';
+    shirt2='';
+
     // deconstruct costume object for draw function
     if (costume) {
       switch (name) {
@@ -98,13 +106,6 @@ function sketch(p) {
           hat2 = costume.hat;
           shirt2 = costume.shirt;
           break;
-        default:
-          glasses1= '';
-          hat1='';
-          shirt1='';
-          glasses2= '';
-          hat2='';
-          shirt2='';
       }
     }
   };
