@@ -23,6 +23,7 @@ function sketch(p) {
 
   //"Tainted Love" and "Take on Me" var
   let filter;
+  let mic;
 
   //poseNet & p5 vars
   let video;
@@ -49,6 +50,7 @@ function sketch(p) {
     shirt2_preload = p.loadImage(
       "https://chriscastle.com/temp/chrisg/wreckingBallTop.png"
     );
+    mic = p.loadImage("https://chriscastle.com/temp/chrisg/mic.png");
   };
 
   p.setup = function () {
@@ -95,7 +97,12 @@ function sketch(p) {
           shirt2 = costume.shirt;
           break;
         default:
-          console.log("No costume for this song");
+          glasses1= '';
+          hat1='';
+          shirt1='';
+          glasses2= '';
+          hat2='';
+          shirt2='';
       }
     }
   };
@@ -140,6 +147,14 @@ function sketch(p) {
           shirtScaleWidth + 100,
           shirtScaleWidth
         );
+
+        p.image(
+          mic,
+          pose.rightWrist.x - 100,
+          pose.rightWrist.y - 300,
+          mic.width,
+          mic.height
+        );
       }
 
       //"Wrecking Ball Costume"
@@ -169,16 +184,48 @@ function sketch(p) {
           shirtScaleWidth + 100,
           shirtScaleWidth
         );
+        p.image(
+          mic,
+          pose.rightWrist.x - 100,
+          pose.rightWrist.y - 300,
+          mic.width,
+          mic.height
+        );
+        
       }
+
+      // if(mic){
+      //   p.image(
+      //     mic,
+      //     pose.rightWrist.x - 100,
+      //     pose.rightWrist.y - 300,
+      //     mic.width,
+      //     mic.height
+      //   );
+      // }
 
       //"Tainted Love" and "Take On Me" filters
       if (filter) {
         switch (filter) {
           case "INVERT":
             p.filter(p.INVERT);
+            p.image(
+              mic,
+              pose.rightWrist.x - 100,
+              pose.rightWrist.y - 300,
+              mic.width,
+              mic.height
+            );
             break;
           case "THRESHOLD, [0.4]":
             p.filter(p.THRESHOLD, [0.4]);
+            p.image(
+              mic,
+              pose.rightWrist.x - 100,
+              pose.rightWrist.y - 300,
+              mic.width,
+              mic.height
+            );
             break;
           default:
             console.log("No filter for this song.");
