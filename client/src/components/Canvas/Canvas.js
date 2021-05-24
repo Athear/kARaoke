@@ -5,7 +5,7 @@ import "./style.css";
 import { useAuth } from "../../utils/use-auth";
 
 
-const Canvas = ({currentSong}) => {
+const Canvas = ({currentSong,changeSong}) => {
   
   const { signout } = useAuth();
   
@@ -13,6 +13,7 @@ const Canvas = ({currentSong}) => {
   <div className="canvas">
     <P5Wrapper sketch ={sketch}
       currentSong={currentSong}
+      changeSong={changeSong}
       signout={signout}
     />
   </div>

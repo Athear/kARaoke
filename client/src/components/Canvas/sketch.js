@@ -3,6 +3,7 @@ import * as ml5 from "ml5";
 function sketch(p) {
   //Parent functions
   let logout;
+  let newSong;
 
 
   //"I'm Too Sexy" variables
@@ -75,13 +76,22 @@ function sketch(p) {
     console.log("poseNet ready");
   }
 
-  p.myCustomRedrawAccordingToNewPropsHandler = function ({ currentSong,signout }) {
+  p.myCustomRedrawAccordingToNewPropsHandler = function ({ currentSong,signout,changeSong }) {
     //set parent functions
     logout = signout;
+    newSong = changeSong;
 
     let name = currentSong.name;
     let costume = currentSong.costume;
     filter = currentSong.filter;
+
+    //empty costume vars
+    glasses1= '';
+    hat1='';
+    shirt1='';
+    glasses2= '';
+    hat2='';
+    shirt2='';
 
     // deconstruct costume object for draw function
     if (costume) {
@@ -96,13 +106,6 @@ function sketch(p) {
           hat2 = costume.hat;
           shirt2 = costume.shirt;
           break;
-        default:
-          glasses1= '';
-          hat1='';
-          shirt1='';
-          glasses2= '';
-          hat2='';
-          shirt2='';
       }
     }
   };
@@ -255,7 +258,7 @@ function sketch(p) {
   resetBtn.mousePressed(resetSketch);
   //function to reload the page
   function resetSketch() {
-    window.location.reload();
+    newSong({});
   }
 
   //button for signing out
