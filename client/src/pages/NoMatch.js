@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Row, Container } from "../components/Grid";
 import axios from "axios";
 import "../css/nomatch.css";
-import GIPHY_API from "../../../.env"
 
 function NoMatch() {
   const [error, setError] = useState(null);
   const [items, setItems] = useState([]);
+  const API_URL="https://api.giphy.com/v1/gifs/random?api_key=EDFnIGDFop0J3dJnQid2JTnCB0KZteY5&tag=wrong&rating=pg"
 
   useEffect(() => {
     axios
       .get(
-        "https://api.giphy.com/v1/gifs/random?api_key=EDFnIGDFop0J3dJnQid2JTnCB0KZteY5&tag=wrong&rating=pg"
+        API_URL
       )
       .then(
         (result) => {
