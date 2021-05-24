@@ -6,7 +6,7 @@ import "../css/nomatch.css";
 function NoMatch() {
   const [error, setError] = useState(null);
   const [items, setItems] = useState([]);
-  const API_URL="https://api.giphy.com/v1/gifs/random?api_key=EDFnIGDFop0J3dJnQid2JTnCB0KZteY5&tag=wrong&rating=pg"
+  const API_URL="https://api.giphy.com/v1/gifs/random?api_key=EDFnIGDFop0J3dJnQid2JTnCB0KZteY5&tag=cat&rating=pg"
 
   useEffect(() => {
     axios
