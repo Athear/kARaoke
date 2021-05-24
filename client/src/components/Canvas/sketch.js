@@ -3,6 +3,7 @@ import * as ml5 from "ml5";
 function sketch(p) {
   //Parent functions
   let logout;
+  let newSong;
 
 
   //"I'm Too Sexy" variables
@@ -73,9 +74,10 @@ function sketch(p) {
     console.log("poseNet ready");
   }
 
-  p.myCustomRedrawAccordingToNewPropsHandler = function ({ currentSong,signout }) {
+  p.myCustomRedrawAccordingToNewPropsHandler = function ({ currentSong,signout,changeSong }) {
     //set parent functions
     logout = signout;
+    newSong = changeSong;
 
     let name = currentSong.name;
     let costume = currentSong.costume;
@@ -208,7 +210,7 @@ function sketch(p) {
   resetBtn.mousePressed(resetSketch);
   //function to reload the page
   function resetSketch() {
-    window.location.reload();
+    newSong({});
   }
 
   //button for signing out

@@ -18,8 +18,13 @@ function Stage() {
   const buttonref = useRef();
   // Load and set stage with setStage
   useEffect(() => {
-    loadStage()
-  }, [])
+    if(Object.keys(activeSong).length === 0){
+      loadStage()
+    }
+    else{
+      setButtons([])
+    }
+  }, [activeSong])
 
   // Calls database and sets state of buttons
   function loadStage() {
@@ -44,8 +49,8 @@ function Stage() {
 
     setSong(selectedSong);
     // <video style = {{visibility: 'show'}} />
-    videoref.current.style.display = "block";
-    buttonref.current.style.display = "none";
+    // videoref.current.style.display = "block";
+    // buttonref.current.style.display = "none";
   };
 
   return (
@@ -54,7 +59,7 @@ function Stage() {
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">
-            <Canvas currentSong={activeSong} />
+            <Canvas currentSong={activeSong} changeSong={setSong} />
           </Col>
           <Col size="md-6 sm-12">
             <Row>
@@ -71,23 +76,23 @@ function Stage() {
         </Col>
         
         <Col size="md-6 sm-12">
-          <div className="buttonsDiv"
-            ref={buttonref}>
-            {buttons.map((songData) => (
-              <SongButton
-                key={songData._id}
-                id={songData._id}
-                title={songData.name}
-                costume={songData.costume}
-                src={songData.song}
-                filter={songData.filter}
-                handleClick={handleClick}
-                
-
-              />
-              
-               ))}
-               </div>
+          {buttons?
+            (
+            <div className="buttonsDiv" ref={buttonref}>
+              {buttons.map((songData) => (
+                <SongButton
+                  key={songData._id}
+                  id={songData._id}
+                  title={songData.name}
+                  costume={songData.costume}
+                  src={songData.song}
+                  filter={songData.filter}
+                  handleClick={handleClick}
+                /> 
+              ))}
+            </div>
+            ): <></>
+          }
                 </Col>
                </Row>
     </>
