@@ -239,7 +239,7 @@ function sketch(p) {
   
   // creating a button with a saveAsCanvas function to create and save a screenshot
   const saveImageBtn = p.createElement(
-    "span",
+    "button",
     '<i style="color:rgb(9, 255, 0)" class="fas fa-camera fa-3x"></i>'
   );
   saveImageBtn.position(20, 270);
@@ -251,7 +251,7 @@ function sketch(p) {
   
   //button to reset the page
   const resetBtn = p.createElement(
-    "span",
+    "button",
     '<i style="color:rgb(9, 255, 0)" class="fas fa-redo fa-3x"></i>'
   );
   resetBtn.position(20, 370);
@@ -263,7 +263,7 @@ function sketch(p) {
 
   //button for signing out
   const signOutBtn = p.createElement(
-    "span",
+    "button",
     '<i style="color:rgb(9, 255, 0)" class="fas fa-sign-out-alt fa-3x"></i>'
   );
   signOutBtn.position(20,450);

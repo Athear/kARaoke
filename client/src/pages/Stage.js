@@ -3,9 +3,10 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import SongSelection from "../components/SongSelection";
 import Canvas from "../components/Canvas/Canvas"
-import SongButton from "../components/SongButton/SongButton";
 import "../css/stage.css";
 import StageHeader from "../components/StageHeader";
+import Carousel from "react-bootstrap/Carousel"
+// import SongButton from "../components/SongButton/SongButton"
 
 function Stage() {
   // Setting our component's initial state
@@ -42,19 +43,15 @@ function Stage() {
 
     const selectedSong = buttons.find(song => song._id === songId)
 
-
-    // const lyricvideo = document.getElementsByClassName("test");
-    // lyricvideo.style.visbility = "show";
-
     setSong(selectedSong);
-    // <video style = {{visibility: 'show'}} />
-    // videoref.current.style.display = "block";
-    // buttonref.current.style.display = "none";
+   
+    videoref.current.style.display = "block";
+    buttonref.current.style.display = "none";
   };
 
   return (
     <>
-      <StageHeader></StageHeader>
+      <StageHeader/>
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">
@@ -62,40 +59,42 @@ function Stage() {
           </Col>
           <Col size="md-6 sm-12">
             <Row>
+
               {Object.keys(activeSong).length !== 0?(
                 <SongSelection currentSong={activeSong}
                   videoref={videoref}
                 />
               ):<></>
               }
+              <div ref={buttonref}>
+              {buttons?(
+                <Carousel>
+                  {buttons.map((songData) => (
+                    <Carousel.Item
+                    key={songData._id}>
+                      <img
+                        className="d-block w-50 zoom"
+                        src={songData.cover}
+                        alt={""+songData.name}
+                        id={songData._id}
+                        title={songData.name}
+                        costume={songData.costume}
+                        filter={songData.filter}
+                        onClick={handleClick}
+                      ></img>
+                      {/* <SongButton
+                        key={songData._id}
+                        handleClick={handleClick}
+                      /> */}
+                    </Carousel.Item>
+                  ))}
+                  ;
+                </Carousel>) : (<></>) }
+              </div>
             </Row>
           </Col>
         </Row>
       </Container>
-      <Row>
-        <Col size="md-6 sm-12">
-        </Col>
-        
-        <Col size="md-6 sm-12">
-          {buttons?
-            (
-            <div className="buttonsDiv" ref={buttonref}>
-              {buttons.map((songData) => (
-                <SongButton
-                  key={songData._id}
-                  id={songData._id}
-                  title={songData.name}
-                  costume={songData.costume}
-                  src={songData.song}
-                  filter={songData.filter}
-                  handleClick={handleClick}
-                /> 
-              ))}
-            </div>
-            ): <></>
-          }
-                </Col>
-               </Row>
     </>
   );
 }
