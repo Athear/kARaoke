@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import { ProvideAuth } from "./utils/use-auth"
 import Stage from "./pages/Stage";
 import Landing from "./pages/Landing";

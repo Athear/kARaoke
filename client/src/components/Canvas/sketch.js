@@ -66,7 +66,6 @@ function sketch(p) {
   };
 
   function gotPoses(poses) {
-    // console.log(poses);
     if (poses.length > 0) {
       pose = poses[0].pose;
     }
@@ -120,7 +119,9 @@ function sketch(p) {
       let eye2 = pose.keypoints[2].position;
       let shoulder1 = pose.keypoints[5].position;
       let shoulder2 = pose.keypoints[6].position;
+      let rightHip = pose.keypoints[12].position;
       let shirtScaleWidth = shoulder1.x - shoulder2.x;
+      let shirtScaleHeight = shoulder1.y + rightHip.y;
       let scale = (eye1.x - eye2.x) / 250;
 
       //"I'm Too Sexy Costume"
@@ -148,7 +149,7 @@ function sketch(p) {
           pose.rightShoulder.x - 200 * scale,
           pose.rightShoulder.y - 400 * scale,
           shirtScaleWidth + 100,
-          shirtScaleWidth
+          shirtScaleHeight - 250
         );
 
         p.image(
@@ -185,7 +186,7 @@ function sketch(p) {
           pose.rightShoulder.x - 200 * scale,
           pose.rightShoulder.y - 400 * scale,
           shirtScaleWidth + 100,
-          shirtScaleWidth
+          shirtScaleHeight - 250
         );
         p.image(
           mic,
@@ -196,16 +197,6 @@ function sketch(p) {
         );
         
       }
-
-      // if(mic){
-      //   p.image(
-      //     mic,
-      //     pose.rightWrist.x - 100,
-      //     pose.rightWrist.y - 300,
-      //     mic.width,
-      //     mic.height
-      //   );
-      // }
 
       //"Tainted Love" and "Take On Me" filters
       if (filter) {
