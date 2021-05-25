@@ -45,8 +45,8 @@ function Stage() {
 
     setSong(selectedSong);
    
-    videoref.current.style.display = "block";
-    buttonref.current.style.display = "none";
+    // videoref.current.style.display = "block";
+    // buttonref.current.style.display = "none";
   };
 
   return (
@@ -59,15 +59,8 @@ function Stage() {
           </Col>
           <Col size="md-6 sm-12">
             <Row>
-
-              {Object.keys(activeSong).length !== 0?(
-                <SongSelection currentSong={activeSong}
-                  videoref={videoref}
-                />
-              ):<></>
-              }
               <div ref={buttonref}>
-              {buttons?(
+              {Object.keys(activeSong).length === 0?(
                 <Carousel>
                   {buttons.map((songData) => (
                     <Carousel.Item
@@ -82,14 +75,13 @@ function Stage() {
                         filter={songData.filter}
                         onClick={handleClick}
                       ></img>
-                      {/* <SongButton
-                        key={songData._id}
-                        handleClick={handleClick}
-                      /> */}
                     </Carousel.Item>
                   ))}
-                  ;
-                </Carousel>) : (<></>) }
+                </Carousel>) : (
+                  <SongSelection currentSong={activeSong}
+                    videoref={videoref}
+                  />
+                )}
               </div>
             </Row>
           </Col>
