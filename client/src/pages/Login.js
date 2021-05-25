@@ -57,29 +57,6 @@ function Login() {
         }
     }
 
-
-    function handleLogout(e) {
-        e.preventDefault();
-        AUTH.signout()
-            .then(() => {
-                sweetAlert.fire({
-                    title: 'Log out?',
-                    // text: "You won't be able to revert this!",
-                    icon: 'question',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'See you later, Aligator!'
-                  }).then((result) => {
-                    if (result.isConfirmed) {
-                        history.push("/")
-                    }
-                  })
-                })
-            .catch(err => onErrorHandler(err.response.data.message, err.response.status));
-    }
-
-
     function validateSession(e) {
         if (AUTH.user) {
             sweetAlert.fire({
@@ -153,12 +130,6 @@ function Login() {
                         </form>
                     </Col>
                 </Row>
-                <FormBtn onClick={validateSession}>
-                    validate
-        </FormBtn>
-                <FormBtn onClick={handleLogout}>
-                    logout
-        </FormBtn>
             </Container>
         </div>
     );
