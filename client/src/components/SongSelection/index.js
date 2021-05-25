@@ -5,13 +5,13 @@ import "./style.css";
 
 
 
-function SongSelection({currentSong}) {
+function SongSelection({ currentSong }) {
   console.log("songSelection: ", currentSong.song);
   return (
-  <SongVideo
-  mp4={currentSong.song}
-  song = {currentSong.name}
-  />
+    <SongVideo
+      mp4={currentSong.song}
+      song={currentSong.name}
+    />
   )
 }
 

@@ -10,7 +10,7 @@ const stageSchema = new Schema({
     of: String,
     required: false
   },
-  filter: { type: String, required: false}
+  filter: { type: String, required: false }
 });
 
 const Stage = mongoose.model("Stage", stageSchema);

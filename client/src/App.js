@@ -12,20 +12,20 @@ function App() {
   return (
     <ProvideAuth>
       <Router>
-          <Switch>
-            <Route exact path={["/"]}>
-              <Landing />
-            </Route>
-            <Route exact path={["/login"]}>
-              <Login className="background" />
-            </Route>
-            <PrivateRoute exact path={["/stage"]}>
-              <Stage />
-            </PrivateRoute>
-            <Route>
-              <NoMatch />
-            </Route>
-          </Switch>
+        <Switch>
+          <Route exact path={["/"]}>
+            <Landing />
+          </Route>
+          <Route exact path={["/login"]}>
+            <Login className="background" />
+          </Route>
+          <PrivateRoute exact path={["/stage"]}>
+            <Stage />
+          </PrivateRoute>
+          <Route>
+            <NoMatch />
+          </Route>
+        </Switch>
       </Router>
     </ProvideAuth>
   );

@@ -15,10 +15,10 @@ function Stage() {
 
   // Load and set stage with setStage
   useEffect(() => {
-    if(Object.keys(activeSong).length === 0){
+    if (Object.keys(activeSong).length === 0) {
       loadStage()
     }
-    else{
+    else {
       setButtons([])
     }
   }, [activeSong])
@@ -40,7 +40,7 @@ function Stage() {
 
   return (
     <>
-      <StageHeader/>
+      <StageHeader />
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">
@@ -48,14 +48,14 @@ function Stage() {
           </Col>
           <Col size="md-6 sm-12">
             <Row>
-              {Object.keys(activeSong).length === 0?(
+              {Object.keys(activeSong).length === 0 ? (
                 <Carousel>
                   {buttons.map((songData) => (
                     <Carousel.Item key={songData._id}>
                       <img
                         className="d-block w-50 zoom"
                         src={songData.cover}
-                        alt={""+songData.name}
+                        alt={"" + songData.name}
                         id={songData._id}
                         title={songData.name}
                         costume={songData.costume}
@@ -66,7 +66,7 @@ function Stage() {
                   ))}
                 </Carousel>
               ) : (
-                <SongSelection 
+                <SongSelection
                   currentSong={activeSong}
                 />
               )}
