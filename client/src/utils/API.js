@@ -24,5 +24,9 @@ export default {
 
   auth: function () {
     return axios.get("/api/users/session")
+  },
+
+  giphy404: function () {
+    return axios.get("/api/giphy")
   }
 };
