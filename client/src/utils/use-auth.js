@@ -19,19 +19,19 @@ function useProvideAuth() {
   //wrap API calls
   const signin = (userName, password) => {
     return API.login({
-        username:userName,
-        password:password
+      username: userName,
+      password: password
     })
       .then((response) => {
         setUser(response.data.user);
         return response.data.user;
       })
   };
-  const signup = (userName,email, password) => {
+  const signup = (userName, email, password) => {
     return API.signup({
-        username:userName,
-        email:email,
-        password:password
+      username: userName,
+      email: email,
+      password: password
     })
       .then((response) => {
         setUser(response.data.user);
@@ -47,18 +47,18 @@ function useProvideAuth() {
 
   // Subscribe to user on mount
   useEffect(() => {
-    const unsubscribe = API.auth().then(res=>{
-        if(res.data && res.data.user){
-            setUser(res.data.user);
-        }else{
-            setUser(false);
-        }
+    const unsubscribe = API.auth().then(res => {
+      if (res.data && res.data.user) {
+        setUser(res.data.user);
+      } else {
+        setUser(false);
+      }
     })
 
     // Cleanup subscription on unmount
     return () => unsubscribe();
   }, []);
-  
+
   return {
     user,
     signin,
