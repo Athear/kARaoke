@@ -45,8 +45,8 @@ function Stage() {
 
     setSong(selectedSong);
    
-    videoref.current.style.display = "block";
-    buttonref.current.style.display = "none";
+    // videoref.current.style.display = "block";
+    // buttonref.current.style.display = "none";
   };
 
   return (
