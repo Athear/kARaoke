@@ -26,7 +26,6 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#57EBDE", en
     font-size: 100px;
     color: rgb(182, 255, 73);
     text-shadow: #FC0 1px 0 10px;
-    /* text-shadow: 10px,10px, #c336c5; */
     padding-top:30px;
     padding-bottom: 30px;
 }

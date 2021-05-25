@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Row, Container } from "../components/Grid";
+import { Row, Col, Container } from "../components/Grid";
 import axios from "axios";
 import "../css/nomatch.css";
 
@@ -10,7 +10,7 @@ function NoMatch() {
   useEffect(() => {
     axios
       .get(
-        "https://api.giphy.com/v1/gifs/random?api_key=EDFnIGDFop0J3dJnQid2JTnCB0KZteY5&tag=wrong&rating=pg-13"
+        "https://api.giphy.com/v1/gifs/random?api_key=EDFnIGDFop0J3dJnQid2JTnCB0KZteY5&tag=cats&rating=pg-13"
       )
       .then(
         (result) => {
@@ -29,8 +29,14 @@ function NoMatch() {
     return (
       <Container>
         <Row>
-          <Row>
-          <h1>404-this page doesn't exist</h1>
+          <Col size="md-12">
+          <h1>404-this page exists</h1>
+          <p>...but it's for back-stage kitties. Hang out if you want, or head back to the...</p>
+          <div className="container">
+          <div className="vertical-center">
+          <button>STAGE</button>
+          </div>
+          </div>
             <div className="giphyContainer">
               <ul>
                 {items.map((item) => (
@@ -40,7 +46,7 @@ function NoMatch() {
                 ))}
               </ul>
             </div>
-          </Row>
+          </Col>
         </Row>
       </Container>
     );

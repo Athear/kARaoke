@@ -7,6 +7,8 @@ import SongButton from "../components/SongButton/SongButton";
 import "../css/stage.css";
 import SongVideo from "../components/SongVideo";
 import StageHeader from "../components/StageHeader";
+// import Carousel from "../components/Carousel/Carousel";
+import Carousel from "react-bootstrap/Carousel"
 
 function Stage() {
   // Setting our component's initial state
@@ -61,12 +63,35 @@ function Stage() {
               <SongSelection currentSong={activeSong}
                 videoref={videoref}
               />
-
+              <div ref={buttonref}>
+                <Carousel>
+                  {buttons.map((songData) => (
+                    <Carousel.Item>
+                      <img
+                        className="d-block w-50 zoom"
+                        src={songData.cover}
+                        alt={songData.name}
+                        id={songData._id}
+                        title={songData.name}
+                        costume={songData.costume}
+                        // src={songData.song}
+                        filter={songData.filter}
+                        onClick={handleClick}
+                      ></img>
+                      <SongButton
+                        key={songData._id}
+                        handleClick={handleClick}
+                      />
+                    </Carousel.Item>
+                  ))}
+                  ;
+                </Carousel>
+              </div>
             </Row>
           </Col>
         </Row>
       </Container>
-      <Row>
+      {/* <Row>
         <Col size="md-6 sm-12">
         </Col>
         
@@ -89,7 +114,7 @@ function Stage() {
                ))}
                </div>
                 </Col>
-               </Row>
+               </Row> */}
     </>
   );
 }
