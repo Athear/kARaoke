@@ -3,6 +3,7 @@ import { Row, Col, Container } from "../components/Grid";
 import axios from "axios";
 import API from "../utils/API";
 import "../css/nomatch.css";
+import {Link} from "react-router-dom";
 
 
 function NoMatch() {
@@ -28,15 +29,16 @@ function NoMatch() {
     return <div>Error: {error.message}</div>;
   } else {
     return (
+      <div className="backstage">
       <Container>
         <Row>
           <Col size="md-12">
-          <h1>404-this page exists</h1>
-          <p>...but it's for back-stage kitties. Hang out if you want, or head back to the...</p>
-          <div className="container">
-          <div className="vertical-center">
-          <button>STAGE</button>
-          </div>
+          <div className="text">
+          <h1>404-Hey!  You're backstage!</h1>
+          <p>There's not much going on here right now; Go back to the stage to join the party!</p>
+          <Link to="/stage">
+          <button className="stage-btn">Back to Stage</button>
+          </Link>
           </div>
             <div className="giphyContainer">
               <ul>
@@ -50,6 +52,7 @@ function NoMatch() {
           </Col>
         </Row>
       </Container>
+      </div>
     );
   }
 }
