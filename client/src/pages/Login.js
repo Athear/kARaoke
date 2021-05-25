@@ -12,7 +12,7 @@ function Login() {
     const AUTH = useAuth()
     const history = useHistory();
     const location = useLocation();
-    
+
     let { from } = location.state || { from: { pathname: "/" } };
     const handleRedirect = () => history.replace(from)
 
@@ -23,12 +23,12 @@ function Login() {
         setFormObject({ ...formObject, [name]: value });
     }
 
-    function onErrorHandler(message,status){
+    function onErrorHandler(message, status) {
         sweetAlert.fire({
             icon: 'warning',
             title: message,
             footer: 'Error: ' + status
-          })
+        })
     }
 
     function handleLogin(e) {
@@ -36,7 +36,7 @@ function Login() {
         if (formObject.userName && formObject.password) {
             AUTH.signin(formObject.userName, formObject.password)
                 .then(handleRedirect)
-                .catch((err) => onErrorHandler(err.response.data.message,err.response.status));
+                .catch((err) => onErrorHandler(err.response.data.message, err.response.status));
         }
     }
 
@@ -52,8 +52,8 @@ function Login() {
                 formObject.new_email,
                 formObject.new_password,
             )
-            .then(handleRedirect)
-            .catch((err) => onErrorHandler(err.response.data.message, err.response.status));
+                .then(handleRedirect)
+                .catch((err) => onErrorHandler(err.response.data.message, err.response.status));
         }
     }
 
@@ -62,13 +62,13 @@ function Login() {
             sweetAlert.fire({
                 icon: 'success',
                 text: 'You are logged in!!',
-                footer: 'user name: '+AUTH.user.username
-              })
+                footer: 'user name: ' + AUTH.user.username
+            })
         } else {
             sweetAlert.fire({
                 icon: 'warning',
                 text: 'You are not logged in',
-              })
+            })
         }
     }
 
@@ -97,7 +97,7 @@ function Login() {
                                 onClick={handleLogin}
                             >
                                 Welcome Back!
-              </FormBtn>
+                            </FormBtn>
                         </form>
                     </Col>
                     <Col size="md-6">
@@ -126,7 +126,7 @@ function Login() {
                                 onClick={handleSignup}
                             >
                                 Are You Ready to ROCK?
-              </FormBtn>
+                           </FormBtn>
                         </form>
                     </Col>
                 </Row>
