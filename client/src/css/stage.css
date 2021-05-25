@@ -82,6 +82,9 @@ body {
 }
 
 
+.carousel-inner {
+    overflow: visible !important;
+}
 
 
 
