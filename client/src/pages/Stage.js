@@ -59,9 +59,13 @@ function Stage() {
           </Col>
           <Col size="md-6 sm-12">
             <Row>
-              <SongSelection currentSong={activeSong}
-                videoref={videoref}
-              />
+
+              {Object.keys(activeSong).length !== 0?(
+                <SongSelection currentSong={activeSong}
+                  videoref={videoref}
+                />
+              ):<></>
+              }
               <div ref={buttonref}>
               {buttons?(
                 <Carousel>
