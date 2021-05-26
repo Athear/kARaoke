@@ -28,7 +28,7 @@ module.exports = {
           console.log(newUser)
           req.session.logged_in = true;
           req.session.user_id = newUser._id;
-          res.status(200).json({sessionID: req.sessionID, user:newUser, message:"User registered" })
+          res.status(200).json({ sessionID: req.sessionID, user: newUser, message: "User registered" })
         })
         .catch(err => res.status(422).json(err));
     }
@@ -54,7 +54,7 @@ module.exports = {
       req.session.save(() => {
         req.session.logged_in = true;
         req.session.user_id = userData.id;
-        res.json({ sessionID: req.sessionID, user:userData, message: "You are now logged in!" });
+        res.json({ sessionID: req.sessionID, user: userData, message: "You are now logged in!" });
       });
     } catch (err) {
       res.status(400).json(err);
@@ -76,12 +76,12 @@ module.exports = {
       res.json(null);
     } else {
       db.User.findById({ _id: req.session.user_id })
-      .then(user=>{
-        res.json({
-          user: user,
-          session_id: req.sessionID
-        });
-      })
+        .then(user => {
+          res.json({
+            user: user,
+            session_id: req.sessionID
+          });
+        })
     }
   }
 };

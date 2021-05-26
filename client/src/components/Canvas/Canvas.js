@@ -7,12 +7,12 @@ import "./style.css";
 import { useAuth } from "../../utils/use-auth";
 
 
-const Canvas = ({currentSong,changeSong}) => {
-  
+const Canvas = ({ currentSong, changeSong }) => {
+
   const { signout } = useAuth();
   const history = useHistory();
-  
-  const handleSignout = function(){
+
+  const handleSignout = function () {
     sweetAlert.fire({
       title: 'Log out?',
       icon: 'question',
@@ -24,7 +24,7 @@ const Canvas = ({currentSong,changeSong}) => {
     }).then((result) => {
       if (result.isConfirmed) {
         signout()
-          .then(() => history.push("/")) 
+          .then(() => history.push("/"))
           .catch(err => {
             sweetAlert.fire({
               icon: 'warning',
@@ -37,14 +37,15 @@ const Canvas = ({currentSong,changeSong}) => {
   }
 
   return (
-  <div className="canvas">
-    <P5Wrapper sketch ={sketch}
-      currentSong={currentSong}
-      changeSong={changeSong}
-      signout={handleSignout }
-    />
-  </div>
-)};
+    <div className="canvas">
+      <P5Wrapper sketch={sketch}
+        currentSong={currentSong}
+        changeSong={changeSong}
+        signout={handleSignout}
+      />
+    </div>
+  )
+};
 
 
 

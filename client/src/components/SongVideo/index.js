@@ -1,13 +1,13 @@
 import React from "react";
 import classes from "./BackgroundVideo.module.css";
 
-const SongVideo = ({ mp4, song, videoref}) => {
+const SongVideo = ({ mp4, song, videoref }) => {
   return (
     <div className={classes.Container} >
       <div className={classes.Image} >
       </div>
       <div className={classes.Content}>
-        <div className={classes.SubContent+" "+classes.Video} >
+        <div className={classes.SubContent + " " + classes.Video} >
           <video className="test"
             controls
             frameBorder="0"

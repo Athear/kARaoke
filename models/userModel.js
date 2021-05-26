@@ -43,11 +43,11 @@ UserSchema.methods.lastUpdatedDate = function () {
   return this.lastUpdated;
 }
 
-UserSchema.methods.hashPassword = async function (newPassword){
+UserSchema.methods.hashPassword = async function (newPassword) {
   this.password = await bcrypt.hash(newPassword, 10);
 }
 
-UserSchema.methods.checkPassword = function (loginPw){
+UserSchema.methods.checkPassword = function (loginPw) {
   return bcrypt.compareSync(loginPw, this.password);
 }
 // This creates our model from the above schema, using mongoose's model method

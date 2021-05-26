@@ -1,4 +1,4 @@
-require ("dotenv").config();
+require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
 const MongoStore = require('connect-mongo');
@@ -37,6 +37,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/karaoke"),
 };
 
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });

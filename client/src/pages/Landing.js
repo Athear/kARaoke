@@ -7,8 +7,8 @@ function Landing() {
   return (
     <div>
       <Jumbotron />
-    <div className="crowd">
-    <h1 className = "blank">CROWD GOES WILD</h1>
+      <div className="crowd">
+        <h1 className="blank">CROWD GOES WILD</h1>
       </div>
     </div>
   );
