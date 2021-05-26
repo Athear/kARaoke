@@ -66,7 +66,6 @@ function sketch(p) {
   };
 
   function gotPoses(poses) {
-    // console.log(poses);
     if (poses.length > 0) {
       pose = poses[0].pose;
     }
@@ -76,7 +75,7 @@ function sketch(p) {
     console.log("poseNet ready");
   }
 
-  p.myCustomRedrawAccordingToNewPropsHandler = function ({ currentSong,signout,changeSong }) {
+  p.myCustomRedrawAccordingToNewPropsHandler = function ({ currentSong, signout, changeSong }) {
     //set parent functions
     logout = signout;
     newSong = changeSong;
@@ -86,12 +85,12 @@ function sketch(p) {
     filter = currentSong.filter;
 
     //empty costume vars
-    glasses1= '';
-    hat1='';
-    shirt1='';
-    glasses2= '';
-    hat2='';
-    shirt2='';
+    glasses1 = '';
+    hat1 = '';
+    shirt1 = '';
+    glasses2 = '';
+    hat2 = '';
+    shirt2 = '';
 
     // deconstruct costume object for draw function
     if (costume) {
@@ -120,7 +119,9 @@ function sketch(p) {
       let eye2 = pose.keypoints[2].position;
       let shoulder1 = pose.keypoints[5].position;
       let shoulder2 = pose.keypoints[6].position;
+      let rightHip = pose.keypoints[12].position;
       let shirtScaleWidth = shoulder1.x - shoulder2.x;
+      let shirtScaleHeight = shoulder1.y + rightHip.y;
       let scale = (eye1.x - eye2.x) / 250;
 
       //"I'm Too Sexy Costume"
@@ -148,7 +149,7 @@ function sketch(p) {
           pose.rightShoulder.x - 200 * scale,
           pose.rightShoulder.y - 400 * scale,
           shirtScaleWidth + 100,
-          shirtScaleWidth
+          shirtScaleHeight - 250
         );
 
         p.image(
@@ -185,7 +186,7 @@ function sketch(p) {
           pose.rightShoulder.x - 200 * scale,
           pose.rightShoulder.y - 400 * scale,
           shirtScaleWidth + 100,
-          shirtScaleWidth
+          shirtScaleHeight - 250
         );
         p.image(
           mic,
@@ -194,18 +195,8 @@ function sketch(p) {
           mic.width,
           mic.height
         );
-        
-      }
 
-      // if(mic){
-      //   p.image(
-      //     mic,
-      //     pose.rightWrist.x - 100,
-      //     pose.rightWrist.y - 300,
-      //     mic.width,
-      //     mic.height
-      //   );
-      // }
+      }
 
       //"Tainted Love" and "Take On Me" filters
       if (filter) {
@@ -236,7 +227,7 @@ function sketch(p) {
       }
     }
   };
-  
+
   // creating a button with a saveAsCanvas function to create and save a screenshot
   const saveImageBtn = p.createElement(
     "button",
@@ -248,7 +239,7 @@ function sketch(p) {
   function saveAsCanvas() {
     p.save("karaoke_canvas.png");
   }
-  
+
   //button to reset the page
   const resetBtn = p.createElement(
     "button",
@@ -266,10 +257,10 @@ function sketch(p) {
     "button",
     '<i style="color:rgb(9, 255, 0)" class="fas fa-sign-out-alt fa-3x"></i>'
   );
-  signOutBtn.position(20,450);
+  signOutBtn.position(20, 450);
   signOutBtn.mousePressed(signOut);
-  
-  function signOut () {
+
+  function signOut() {
     logout();
   }
 

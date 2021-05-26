@@ -8,31 +8,24 @@ import Login from "./pages/Login";
 import PrivateRoute from "./components/PrivateRoute"
 
 
-
-
 function App() {
   return (
     <ProvideAuth>
       <Router>
-        <div>
-          <Switch>
-            <Route exact path={["/"]}>
-              <Landing />
-            </Route>
-            <Route exact path={["/login"]}>
-              <Login className="background" />
-            </Route>
-            <PrivateRoute exact path={["/stage"]}>
-              <Stage />
-            </PrivateRoute>
-            {/* <Route exact path="/stage/:id">
-              <Detail />
-            </Route> */}
-            <Route>
-              <NoMatch />
-            </Route>
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path={["/"]}>
+            <Landing />
+          </Route>
+          <Route exact path={["/login"]}>
+            <Login className="background" />
+          </Route>
+          <PrivateRoute exact path={["/stage"]}>
+            <Stage />
+          </PrivateRoute>
+          <Route>
+            <NoMatch />
+          </Route>
+        </Switch>
       </Router>
     </ProvideAuth>
   );

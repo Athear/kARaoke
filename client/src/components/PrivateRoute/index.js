@@ -3,11 +3,11 @@ import { Route, Redirect } from "react-router-dom";
 import { useAuth } from "../../utils/use-auth"
 
 export default function PrivateRoute({ children, ...rest }) {
-    let auth = useAuth();
-    return (
-      auth.user == null ? ( //auth not loaded yet
-        "LOADING...."
-      ) : (
+  let auth = useAuth();
+  return (
+    auth.user == null ? ( //auth not loaded yet
+      "LOADING...."
+    ) : (
       <Route
         {...rest}
         render={({ location }) =>
@@ -24,5 +24,5 @@ export default function PrivateRoute({ children, ...rest }) {
         }
       />
     )
-    );
-  }
+  );
+}

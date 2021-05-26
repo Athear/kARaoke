@@ -1,12 +1,12 @@
 import axios from "axios";
 
 export default {
-  
-  getStage: function() {
+
+  getStage: function () {
     return axios.get("/api/stage");
   },
 
-  getStageById: function(id) {
+  getStageById: function (id) {
     return axios.get("/api/stage/" + id);
   },
 
@@ -15,14 +15,18 @@ export default {
   },
 
   signup: function (userData) {
-    return axios.post("/api/users/signup",userData)
+    return axios.post("/api/users/signup", userData)
   },
 
-  logout: function(){
+  logout: function () {
     return axios.post("/api/users/logout")
   },
 
   auth: function () {
     return axios.get("/api/users/session")
+  },
+
+  giphy404: function () {
+    return axios.get("/api/giphy")
   }
 };

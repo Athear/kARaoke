@@ -12,7 +12,7 @@ function Login() {
     const AUTH = useAuth()
     const history = useHistory();
     const location = useLocation();
-    
+
     let { from } = location.state || { from: { pathname: "/" } };
     const handleRedirect = () => history.replace(from)
 
@@ -23,12 +23,12 @@ function Login() {
         setFormObject({ ...formObject, [name]: value });
     }
 
-    function onErrorHandler(message,status){
+    function onErrorHandler(message, status) {
         sweetAlert.fire({
             icon: 'warning',
             title: message,
             footer: 'Error: ' + status
-          })
+        })
     }
 
     function handleLogin(e) {
@@ -36,7 +36,7 @@ function Login() {
         if (formObject.userName && formObject.password) {
             AUTH.signin(formObject.userName, formObject.password)
                 .then(handleRedirect)
-                .catch((err) => onErrorHandler(err.response.data.message,err.response.status));
+                .catch((err) => onErrorHandler(err.response.data.message, err.response.status));
         }
     }
 
@@ -52,46 +52,23 @@ function Login() {
                 formObject.new_email,
                 formObject.new_password,
             )
-            .then(handleRedirect)
-            .catch((err) => onErrorHandler(err.response.data.message, err.response.status));
+                .then(handleRedirect)
+                .catch((err) => onErrorHandler(err.response.data.message, err.response.status));
         }
     }
-
-
-    function handleLogout(e) {
-        e.preventDefault();
-        AUTH.signout()
-            .then(() => {
-                sweetAlert.fire({
-                    title: 'Log out?',
-                    // text: "You won't be able to revert this!",
-                    icon: 'question',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'See you later, Aligator!'
-                  }).then((result) => {
-                    if (result.isConfirmed) {
-                        history.push("/")
-                    }
-                  })
-                })
-            .catch(err => onErrorHandler(err.response.data.message, err.response.status));
-    }
-
 
     function validateSession(e) {
         if (AUTH.user) {
             sweetAlert.fire({
                 icon: 'success',
                 text: 'You are logged in!!',
-                footer: 'user name: '+AUTH.user.username
-              })
+                footer: 'user name: ' + AUTH.user.username
+            })
         } else {
             sweetAlert.fire({
                 icon: 'warning',
                 text: 'You are not logged in',
-              })
+            })
         }
     }
 
@@ -120,7 +97,7 @@ function Login() {
                                 onClick={handleLogin}
                             >
                                 Welcome Back!
-              </FormBtn>
+                            </FormBtn>
                         </form>
                     </Col>
                     <Col size="md-6">
@@ -149,16 +126,10 @@ function Login() {
                                 onClick={handleSignup}
                             >
                                 Are You Ready to ROCK?
-              </FormBtn>
+                           </FormBtn>
                         </form>
                     </Col>
                 </Row>
-                <FormBtn onClick={validateSession}>
-                    validate
-        </FormBtn>
-                <FormBtn onClick={handleLogout}>
-                    logout
-        </FormBtn>
             </Container>
         </div>
     );

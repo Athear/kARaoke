@@ -1,53 +1,57 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from "../components/Grid";
-import axios from "axios";
+import API from "../utils/API";
 import "../css/nomatch.css";
+import { Link } from "react-router-dom";
+
 
 function NoMatch() {
   const [error, setError] = useState(null);
   const [items, setItems] = useState([]);
-  const API_URL="https://api.giphy.com/v1/gifs/random?api_key=EDFnIGDFop0J3dJnQid2JTnCB0KZteY5&tag=cat&rating=pg"
 
   useEffect(() => {
-    axios
-      .get("https://api.giphy.com/v1/gifs/random?api_key=EDFnIGDFop0J3dJnQid2JTnCB0KZteY5&tag=cats&rating=pg-13")
+    API.giphy404()
       .then(
         (result) => {
-          setItems([result.data.data]);
-          console.log(result);
+          setItems([result.data]);
+          console.log(result.data);
         },
         (error) => {
           setError(error);
         }
       );
+
+
   }, []);
   console.log(items);
   if (error) {
     return <div>Error: {error.message}</div>;
   } else {
     return (
-      <Container>
-        <Row>
-          <Col size="md-12">
-          <h1>404-this page exists</h1>
-          <p>...but it's for back-stage kitties. Hang out if you want, or head back to the...</p>
-          <div className="container">
-          <div className="vertical-center">
-          <button>STAGE</button>
-          </div>
-          </div>
-            <div className="giphyContainer">
-              <ul>
-                {items.map((item) => (
-                  <li key={item.id}>
-                    <img src={item.images.original.url}></img>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <div className="backstage">
+        <Container>
+          <Row>
+            <Col size="md-12">
+              <div className="text">
+                <h1>404-Hey!  You're backstage!</h1>
+                <p>There's not much going on here right now; Go back to the stage to join the party!</p>
+                <Link to="/stage">
+                  <button className="stage-btn">Back to Stage</button>
+                </Link>
+              </div>
+              <div className="giphyContainer">
+                <ul>
+                  {items.map((item) => (
+                    <li key={item.id}>
+                      <img src={item.images.original.url}></img>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     );
   }
 }
