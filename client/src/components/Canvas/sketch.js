@@ -51,7 +51,7 @@ function sketch(p) {
     shirt2_preload = p.loadImage(
       "https://chriscastle.com/temp/chrisg/wreckingBallTop.png"
     );
-    mic = p.loadImage("https://chriscastle.com/temp/chrisg/mic.png");
+    mic = p.loadImage("https://chriscastle.com/temp/chrisg/micstand.png");
   };
 
   p.setup = function () {
@@ -153,8 +153,8 @@ function sketch(p) {
 
         p.image(
           mic,
-          pose.rightWrist.x - 100,
-          pose.rightWrist.y - 300,
+          -10,
+          150,
           mic.width,
           mic.height
         );
