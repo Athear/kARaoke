@@ -36,6 +36,7 @@ function Stage() {
     const selectedSong = buttons.find(song => song._id === songId)
 
     setSong(selectedSong);
+
   };
 
   return (
@@ -64,6 +65,7 @@ function Stage() {
                       ></img>
                     </Carousel.Item>
                   ))}
+
                 </Carousel>
               ) : (
                 <SongSelection
