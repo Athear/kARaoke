@@ -81,7 +81,7 @@ ___
 
 ### _Github:_ [k{AR}oke](https://github.com/Athear/kARaoke)
 
-### _Heroku Deployment:_
+### _Heroku Deployment:_[k{AR}oke LIVE](https://just-duet-karaoke.herokuapp.com/)
 
 ### _Contributors:_
 Chris Gutierrez - cmgson1@gmail.com<br>
