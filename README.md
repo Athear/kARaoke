@@ -75,14 +75,13 @@ After approval, please follow the "fork-and-pull" Git workflow.
 
 --- 
 
-## <div align ='center'> **Review and Contact Developers Here**</div>
+## <div align ='center'><a name="github"></a> **Review and Contact Developers Here**</div>
 
 ___
 
 ### _Github:_ [k{AR}oke](https://github.com/Athear/kARaoke)
 
-### _Heroku Deployment:_
-
+### _Heroku Deployment:_ (https://just-duet-karaoke.herokuapp.com)
 ### _Contributors:_
 Chris Gutierrez - cmgson1@gmail.com<br>
 Carolyn Hilpisch - ckhilpisch@gmail.com<br>
